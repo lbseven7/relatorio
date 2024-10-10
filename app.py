@@ -3,6 +3,16 @@ import pandas as pd
 import sqlite3
 from fpdf import FPDF
 import tempfile
+import json
+
+# Carregar listas de serviços, empresas e setores do arquivo JSON
+with open('dados.json', 'r', encoding='utf-8') as f:
+    dados = json.load(f)
+
+# Acessando as listas
+servicos_disponiveis = dados["servicos_disponiveis"]
+empresas_disponiveis = dados["empresas_disponiveis"]
+setores_disponiveis = dados["setores_disponiveis"]
 
 # Conectar ao banco de dados SQLite
 conn = sqlite3.connect("servicos.db")
@@ -15,127 +25,14 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS servicos (
     Servico TEXT,
     Data TEXT,
     Setor TEXT,
-    Quantidade INTEGER
+    Quantidade INTEGER,
+    Ativo INTEGER DEFAULT 1
 )""")
 conn.commit()
-
-# Adicionar a coluna 'Ativo' na tabela 'servicos', caso ela não exista
-try:
-    cursor.execute("ALTER TABLE servicos ADD COLUMN Ativo INTEGER DEFAULT 1")
-    conn.commit()
-except sqlite3.OperationalError:
-    pass
 
 # Inicializar o DataFrame para armazenar os dados
 if 'data' not in st.session_state:
     st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-
-# Lista de serviços disponíveis
-servicos_disponiveis = [
-    "ACABAMENTO",
-    "ACCESS POINT",
-    "AP DE REDE",
-    "Bandeja Completa",
-    "BRAÇADEIRAS",
-    "BROCA",
-    "BUCHA",
-    "CABO DE FORÇA",
-    "CABO DE REDE",
-    "CABO HDMI",
-    "CABO VGA",
-    "CAIXA ACÚSTICA",
-    "CAIXA CABO DE REDE",
-    "CAIXA DE FIO DE REDE CAT5E",
-    "CEILING MOUNT",
-    "CILINDRO",
-    "CONECTORES RJ45",
-    "CONDULETE",
-    "CURVA",
-    "DR",
-    "ELETRODUTO",
-    "ESTABILIZADOR",
-    "FILTRO DE LINHA",
-    "FITA ISOLANTE",
-    "FONTE DE ALIMENTAÇÃO",
-    "IMPRESSORA MULTIFUNCIONAL",
-    "KIT DR",
-    "Manta Térmica",
-    "MEMÓRIA DDR4 8GB",
-    "MOUSE",
-    "MOUSE USB",
-    "NOTEBOOK",
-    "PARAFUSO",
-    "PEÇA FIO 2,5mm",
-    "PLACA PCI-EXPRESS",
-    "PLUG FÊMEA 3 PINOS",
-    "PROTETOR MULTIFUNCIONAL",
-    "Rack 4U",
-    "RACK U8",
-    "Recarga Toner",
-    "Reset Impressora",
-    "ROTEADOR",
-    "Serviço de Manutenção",
-    "SSD 240GB",
-    "SUPORTE TV",
-    "SWITCH 8 PORT",
-    "SWITCH GRANDSTREAM",
-    "SWITCHING MERCOSYS",
-    "TECLADO USB",
-    "TINTA EPSON",
-    "TOMADA",
-    "TONER",
-    "Troca de Almofada",
-    "Troca de Cilindro",
-    "Troca de Esponja",
-    "Troca de Esponja Carimbo",
-    "Troca de Lâmina",
-    "Troca de Painel"
-]
-
-
-# Lista de empresas disponíveis
-empresas_disponiveis = ["Copy Laser", "TI"]  # Adicione mais empresas aqui quando necessário
-
-# Lista de escolas/setores/departamentos
-setores_disponiveis = [
-    "SMED",
-    "ADMINISTRATIVO",
-    "ALEGRIA DE VIVER - CEMAEE",
-    "ARLINDA EMÍLIA DE ASSIS",
-    "BUSCA ATIVA",
-    "CANTINA CENTRAL",
-    "CARNEIRO RIBEIRO",
-    "CME - CONSELHO MUNICIPAL DE EDUCAÇÃO",
-    "CET",
-    "COLÉGIO LUZIA SILVA",
-    "CRECHE MARLEIDE PINTO DE NOVAES NUNES",
-    "CSU",
-    "DELMINDA FARIAS DE ALMEIDA",
-    "DIANA E JUSSIENE",
-    "EMANOEL DE OLIVEIRA BRITO",
-    "EQUIPE MULTIFUNCIONAL",
-    "ERALDO TINOCO",
-    "ESCOLAS NUCLEADAS",
-    "EVERALDO SOUSA SANTOS",
-    "GABINETE DO SECRETÁRIO",
-    "IRMÃ DULCE",
-    "LOMANTO JUNIOR",
-    "LOURIVAL ROSA DE SENA",
-    "ORGANIZAÇÃO ESCOLAR",
-    "MENANDRO MINAHIM",
-    "MERENDA ESCOLAR",
-    "MONTEIRO LOBATO",
-    "MUNDO INFANTIL CRECHE",
-    "ORGANIZAÇÃO ESCOLAR",
-    "PEDAGÓGICO",
-    "PRESIDENTE CASTELO BRANCO",
-    "RURAL DE IPIÚNA",
-    "STELA CAMARA DUBOIS",
-    "TECNOLOGIA",
-    "TERRABRÁS",
-    "VICENZO GASBARRE",
-    "JOAQUIM NERY"
-]
 
 # Função para cadastrar serviços
 def cadastrar_servico():
@@ -146,7 +43,7 @@ def cadastrar_servico():
     quantidade = st.number_input("Quantidade", min_value=1, step=1, key=f"quantidade_cadastro")
 
     if st.button("Cadastrar Serviço"):
-        cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade, Ativo) VALUES (?, ?, ?, ?, ?, 1)",
+        cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?) ",
                        (empresa, servico, data, setor, quantidade))
         conn.commit()
         st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
