@@ -57,11 +57,13 @@
         "Troca de Esponja",
         "Troca de Esponja Carimbo",
         "Troca de Lâmina",
-        "Troca de Painel"
+        "Troca de Painel",
+        ""
     ],
     "empresas_disponiveis": [
         "Copy Laser",
-        "TI"
+        "TI",
+        "Neemias Rios dos Anjos"
     ],
     "setores_disponiveis": [
         "SMED",
