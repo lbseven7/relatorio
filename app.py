@@ -75,13 +75,15 @@ def editar_servico():
 # Função para excluir serviços (marcar como inativo)
 def excluir_servico():
     if not st.session_state.data.empty:
-        id_excluir = st.selectbox("Selecione o ID do Serviço para Excluir", st.session_state.data['ID'], key=f"id_excluir")
+        # Adiciona a opção "Selecione" na seleção de serviços
+        id_excluir = st.selectbox("Selecione o ID do Serviço para Excluir", ["Selecione"] + list(st.session_state.data['ID']), key=f"id_excluir")
 
-        if st.button("Excluir Serviço"):
-            cursor.execute("UPDATE servicos SET Ativo = 0 WHERE ID = ?", (id_excluir,))
-            conn.commit()
-            st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-            st.success("Serviço excluído com sucesso!")
+        if id_excluir != "Selecione":
+            if st.button("Excluir Serviço"):
+                cursor.execute("UPDATE servicos SET Ativo = 0 WHERE ID = ?", (id_excluir,))
+                conn.commit()
+                st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
+                st.success("Serviço excluído com sucesso!")
 
 # Função para gerar relatório em PDF por setor e serviço
 def gerar_relatorio_pdf_por_setor(empresa_selecionada):
@@ -185,3 +187,6 @@ st.dataframe(st.session_state.data)
 st.subheader("Consulta de Quantidade de Serviços")
 consultar_quantidade_servicos()
 consultar_quantidade_servicos_empresa()
+
+# Fechar a conexão ao final
+conn.close()
