@@ -83,24 +83,49 @@ def excluir_servico():
             st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
             st.success("Serviço excluído com sucesso!")
 
-# Função para gerar relatório em PDF
-def gerar_relatorio_pdf():
+# Função para gerar relatório em PDF por setor e serviço
+def gerar_relatorio_pdf_por_setor(empresa_selecionada):
+    # Consulta para obter serviços por setor
+    query = """
+    SELECT Setor, Servico, SUM(Quantidade) AS Total
+    FROM servicos
+    WHERE Empresa = ? AND Ativo = 1
+    GROUP BY Setor, Servico
+    ORDER BY Setor, Servico
+    """
+    df_resultados = pd.read_sql_query(query, conn, params=(empresa_selecionada,))
+    
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=10)
+    pdf.set_font("Arial", 'B', 16)
+    pdf.cell(0, 10, f"Relatório de Serviços para a Empresa: {empresa_selecionada}", ln=True, align='C')
+    pdf.ln(10)
 
-    # Adicione um cabeçalho
-    pdf.cell(200, 10, txt="Relatório de Serviços", ln=True, align='C')
+    pdf.set_font("Arial", 'B', 12)
+    pdf.cell(80, 10, "Setor", border=1)
+    pdf.cell(80, 10, "Serviço", border=1)
+    pdf.cell(40, 10, "Total de Serviços", border=1)
+    pdf.ln()
 
-    # Adicionando os dados ao PDF
-    for index, row in st.session_state.data.iterrows():
-        linha = f"ID: {row['ID']} | Empresa: {row['Empresa']} | Serviço: {row['Servico']} | Setor: {row['Setor']} | Data: {row['Data']} | Quantidade: {row['Quantidade']}"
-        if pdf.get_string_width(linha) > 190:
-            partes = linha.split(" | ")
-            for parte in partes:
-                pdf.cell(0, 10, txt=parte, ln=True)
-        else:
-            pdf.cell(0, 10, txt=linha, ln=True)
+    pdf.set_font("Arial", '', 12)
+
+    # Agrupar os resultados por setor
+    for setor, grupo in df_resultados.groupby('Setor'):
+        # Adicionar o nome do setor uma vez
+        pdf.cell(80, 10, setor, border=1)
+
+        # Para o primeiro serviço, mostra o nome do serviço e total
+        primeiro_servico = grupo.iloc[0]
+        pdf.cell(80, 10, primeiro_servico["Servico"], border=1)
+        pdf.cell(40, 10, str(primeiro_servico["Total"]), border=1)
+        pdf.ln()
+
+        # Adicionar os demais serviços do mesmo setor
+        for _, linha in grupo.iloc[1:].iterrows():
+            pdf.cell(80, 10, "", border=1)  # Espaço vazio para a coluna de setor
+            pdf.cell(80, 10, linha["Servico"], border=1)
+            pdf.cell(40, 10, str(linha["Total"]), border=1)
+            pdf.ln()
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
         pdf_file_name = tmp_file.name
@@ -118,6 +143,35 @@ def consultar_quantidade_servicos():
             quantidade = 0
         st.success(f"A quantidade total de serviços '{servico_selecionado}' realizados é: {quantidade}")
 
+# Função para consultar quantidade de serviços por empresa
+def consultar_quantidade_servicos_empresa():
+    empresa_selecionada = st.selectbox("Selecione a Empresa", empresas_disponiveis)
+    
+    if st.button("Consultar Quantidade por Empresa"):
+        query = """
+        SELECT Setor, Servico, SUM(Quantidade) AS Total
+        FROM servicos
+        WHERE Empresa = ? AND Ativo = 1
+        GROUP BY Setor, Servico
+        ORDER BY Setor, Servico
+        """
+        df_resultados = pd.read_sql_query(query, conn, params=(empresa_selecionada,))
+        
+        if not df_resultados.empty:
+            st.dataframe(df_resultados)
+            # Gerar relatório PDF
+            if st.button("Emitir Relatório em PDF"):
+                pdf_file_name = gerar_relatorio_pdf_por_setor(empresa_selecionada)
+                with open(pdf_file_name, "rb") as f:
+                    st.download_button(
+                        label="Baixar Relatório PDF",
+                        data=f,
+                        file_name="relatorio_servicos.pdf",
+                        mime="application/pdf"
+                    )
+        else:
+            st.warning("Nenhum serviço encontrado para a empresa selecionada.")
+
 # Interface do Streamlit
 st.title("Cadastro de Serviços")
 cadastrar_servico()
@@ -130,13 +184,4 @@ st.dataframe(st.session_state.data)
 # Seção para consultar a quantidade de serviços
 st.subheader("Consulta de Quantidade de Serviços")
 consultar_quantidade_servicos()
-
-if st.button("Emitir Relatório em PDF"):
-    pdf_file_name = gerar_relatorio_pdf()
-    with open(pdf_file_name, "rb") as f:
-        st.download_button(
-            label="Baixar Relatório PDF",
-            data=f,
-            file_name="relatorio_servicos.pdf",
-            mime="application/pdf"
-        )
+consultar_quantidade_servicos_empresa()
