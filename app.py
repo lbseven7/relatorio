@@ -36,41 +36,48 @@ if 'data' not in st.session_state:
 
 # Função para cadastrar serviços
 def cadastrar_servico():
-    empresa = st.selectbox("Escolha a Empresa", empresas_disponiveis, key=f"empresa_cadastro")
-    servico = st.selectbox("Escolha o Serviço", servicos_disponiveis, key=f"servico_cadastro")
-    setor = st.selectbox("Escolha o Setor", setores_disponiveis, key=f"setor_cadastro")
+    empresa = st.selectbox("Escolha a Empresa", ["Selecione"] + empresas_disponiveis, key=f"empresa_cadastro")
+    servico = st.selectbox("Escolha o Serviço", ["Selecione"] + servicos_disponiveis, key=f"servico_cadastro")
+    setor = st.selectbox("Escolha o Setor", ["Selecione"] + setores_disponiveis, key=f"setor_cadastro")
     data = st.date_input("Data", key=f"data_cadastro")
     quantidade = st.number_input("Quantidade", min_value=1, step=1, key=f"quantidade_cadastro")
 
     if st.button("Cadastrar Serviço"):
-        cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?) ",
-                       (empresa, servico, data, setor, quantidade))
-        conn.commit()
-        st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-        st.success("Serviço cadastrado com sucesso!")
+        if empresa != "Selecione" and servico != "Selecione" and setor != "Selecione":
+            cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?) ",
+                           (empresa, servico, data, setor, quantidade))
+            conn.commit()
+            st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
+            st.success("Serviço cadastrado com sucesso!")
+        else:
+            st.warning("Por favor, selecione todos os campos obrigatórios.")
 
 # Função para editar serviços
 def editar_servico():
     if not st.session_state.data.empty:
-        id_editar = st.selectbox("Selecione o ID do Serviço para Editar", st.session_state.data['ID'], key=f"id_editar")
+        id_editar = st.selectbox("Selecione o ID do Serviço para Editar", ["Selecione"] + list(st.session_state.data['ID']), key=f"id_editar")
 
-        # Obtém o registro selecionado
-        registro = st.session_state.data[st.session_state.data['ID'] == id_editar].iloc[0]
+        if id_editar != "Selecione":
+            # Obtém o registro selecionado
+            registro = st.session_state.data[st.session_state.data['ID'] == id_editar].iloc[0]
 
-        empresa = st.selectbox("Escolha a Empresa", empresas_disponiveis, index=empresas_disponiveis.index(registro['Empresa']), key=f"empresa_editar")
-        servico_index = servicos_disponiveis.index(registro['Servico']) if registro['Servico'] in servicos_disponiveis else 0
-        servico = st.selectbox("Escolha o Serviço", servicos_disponiveis, index=servico_index, key=f"servico_editar")
-        setor = st.selectbox("Escolha o Setor", setores_disponiveis, index=setores_disponiveis.index(registro['Setor']), key=f"setor_editar")
-        data = st.date_input("Data", value=pd.to_datetime(registro['Data']), key=f"data_editar")
-        quantidade = st.number_input("Quantidade", min_value=1, step=1, value=registro['Quantidade'], key=f"quantidade_editar")
+            empresa = st.selectbox("Escolha a Empresa", ["Selecione"] + empresas_disponiveis, index=empresas_disponiveis.index(registro['Empresa']) + 1, key=f"empresa_editar")
+            servico_index = servicos_disponiveis.index(registro['Servico']) + 1 if registro['Servico'] in servicos_disponiveis else 0
+            servico = st.selectbox("Escolha o Serviço", ["Selecione"] + servicos_disponiveis, index=servico_index, key=f"servico_editar")
+            setor = st.selectbox("Escolha o Setor", ["Selecione"] + setores_disponiveis, index=setores_disponiveis.index(registro['Setor']) + 1, key=f"setor_editar")
+            data = st.date_input("Data", value=pd.to_datetime(registro['Data']), key=f"data_editar")
+            quantidade = st.number_input("Quantidade", min_value=1, step=1, value=registro['Quantidade'], key=f"quantidade_editar")
 
-        if st.button("Salvar Edição"):
-            cursor.execute("""UPDATE servicos
-                SET Empresa = ?, Servico = ?, Data = ?, Setor = ?, Quantidade = ?
-                WHERE ID = ?""", (empresa, servico, data, setor, quantidade, id_editar))
-            conn.commit()
-            st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-            st.success("Serviço editado com sucesso!")
+            if st.button("Salvar Edição"):
+                if empresa != "Selecione" and servico != "Selecione" and setor != "Selecione":
+                    cursor.execute("""UPDATE servicos
+                        SET Empresa = ?, Servico = ?, Data = ?, Setor = ?, Quantidade = ?
+                        WHERE ID = ?""", (empresa, servico, data, setor, quantidade, id_editar))
+                    conn.commit()
+                    st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
+                    st.success("Serviço editado com sucesso!")
+                else:
+                    st.warning("Por favor, selecione todos os campos obrigatórios.")
 
 # Função para excluir serviços (marcar como inativo)
 def excluir_servico():
@@ -137,56 +144,58 @@ def gerar_relatorio_pdf_por_setor(empresa_selecionada):
 
 # Função para consultar quantidade total de serviços
 def consultar_quantidade_servicos():
-    servico_selecionado = st.selectbox("Selecione o Serviço", servicos_disponiveis)
+    servico_selecionado = st.selectbox("Selecione o Serviço", ["Selecione"] + servicos_disponiveis)
     
     if st.button("Consultar Quantidade"):
-        quantidade = cursor.execute("SELECT SUM(Quantidade) FROM servicos WHERE Servico = ? AND Ativo = 1", (servico_selecionado,)).fetchone()[0]
-        if quantidade is None:
-            quantidade = 0
-        st.success(f"A quantidade total de serviços '{servico_selecionado}' realizados é: {quantidade}")
+        if servico_selecionado != "Selecione":
+            quantidade = cursor.execute("SELECT SUM(Quantidade) FROM servicos WHERE Servico = ? AND Ativo = 1", (servico_selecionado,)).fetchone()[0]
+            if quantidade is None:
+                quantidade = 0
+            st.success(f"A quantidade total de serviços '{servico_selecionado}' realizados é: {quantidade}")
+        else:
+            st.warning("Por favor, selecione um serviço.")
 
 # Função para consultar quantidade de serviços por empresa
 def consultar_quantidade_servicos_empresa():
-    empresa_selecionada = st.selectbox("Selecione a Empresa", empresas_disponiveis)
+    empresa_selecionada = st.selectbox("Selecione a Empresa", ["Selecione"] + empresas_disponiveis)
     
     if st.button("Consultar Quantidade por Empresa"):
-        query = """
-        SELECT Setor, Servico, SUM(Quantidade) AS Total
-        FROM servicos
-        WHERE Empresa = ? AND Ativo = 1
-        GROUP BY Setor, Servico
-        ORDER BY Setor, Servico
-        """
-        df_resultados = pd.read_sql_query(query, conn, params=(empresa_selecionada,))
-        
-        if not df_resultados.empty:
-            st.dataframe(df_resultados)
-            # Gerar relatório PDF
-            if st.button("Emitir Relatório em PDF"):
-                pdf_file_name = gerar_relatorio_pdf_por_setor(empresa_selecionada)
-                with open(pdf_file_name, "rb") as f:
-                    st.download_button(
-                        label="Baixar Relatório PDF",
-                        data=f,
-                        file_name="relatorio_servicos.pdf",
-                        mime="application/pdf"
-                    )
+        if empresa_selecionada != "Selecione":
+            query = """
+            SELECT Setor, Servico, SUM(Quantidade) AS Total
+            FROM servicos
+            WHERE Empresa = ? AND Ativo = 1
+            GROUP BY Setor, Servico
+            ORDER BY Setor, Servico
+            """
+            df_resultados = pd.read_sql_query(query, conn, params=(empresa_selecionada,))
+
+            if not df_resultados.empty:
+                st.write(df_resultados)
+            else:
+                st.warning("Nenhum serviço encontrado para esta empresa.")
         else:
-            st.warning("Nenhum serviço encontrado para a empresa selecionada.")
+            st.warning("Por favor, selecione uma empresa.")
 
-# Interface do Streamlit
-st.title("Cadastro de Serviços")
-cadastrar_servico()
-editar_servico()
-excluir_servico()
+# Exibir opções na barra lateral
+st.sidebar.title("Gerenciamento de Serviços")
+opcao = st.sidebar.selectbox("Escolha uma opção", ["Cadastrar Serviço", "Editar Serviço", "Excluir Serviço", "Consultar Quantidade", "Consultar por Empresa"])
 
-st.subheader("Serviços Cadastrados")
-st.dataframe(st.session_state.data)
-
-# Seção para consultar a quantidade de serviços
-st.subheader("Consulta de Quantidade de Serviços")
-consultar_quantidade_servicos()
-consultar_quantidade_servicos_empresa()
+if opcao == "Cadastrar Serviço":
+    st.title("Cadastrar Serviço")
+    cadastrar_servico()
+elif opcao == "Editar Serviço":
+    st.title("Editar Serviço")
+    editar_servico()
+elif opcao == "Excluir Serviço":
+    st.title("Excluir Serviço")
+    excluir_servico()
+elif opcao == "Consultar Quantidade":
+    st.title("Consultar Quantidade de Serviços")
+    consultar_quantidade_servicos()
+elif opcao == "Consultar por Empresa":
+    st.title("Consultar Quantidade de Serviços por Empresa")
+    consultar_quantidade_servicos_empresa()
 
 # Fechar a conexão ao final
 conn.close()
