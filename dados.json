@@ -1,5 +1,6 @@
 {
     "servicos_disponiveis": [
+        "Selecione",
         "RECARGA BROTHER 3442",
         "RECARGA BROTHER 3472",
         "RECARGA BROTHER B021",
@@ -78,11 +79,13 @@
         ""
     ],
     "empresas_disponiveis": [
+        "Selecione",
         "Copy Laser",
         "TI",
         "Neemias Rios dos Anjos"
     ],
     "setores_disponiveis": [
+        "Selecione",
         "SMED",
         "ADMINISTRATIVO",
         "ALEGRIA DE VIVER - CEMAEE",
