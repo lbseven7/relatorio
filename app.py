@@ -4,15 +4,16 @@ import sqlite3
 from fpdf import FPDF
 import tempfile
 import json
+from datetime import datetime
 
 # Carregar listas de serviços, empresas e setores do arquivo JSON
 with open('dados.json', 'r', encoding='utf-8') as f:
     dados = json.load(f)
 
 # Acessando as listas
-servicos_disponiveis = dados["servicos_disponiveis"]
-empresas_disponiveis = dados["empresas_disponiveis"]
-setores_disponiveis = dados["setores_disponiveis"]
+servicos_disponiveis = ["Selecione"] + dados["servicos_disponiveis"]
+empresas_disponiveis = ["Selecione"] + dados["empresas_disponiveis"]
+setores_disponiveis = ["Selecione"] + dados["setores_disponiveis"]
 
 # Conectar ao banco de dados SQLite
 conn = sqlite3.connect("servicos.db")
@@ -34,6 +35,14 @@ conn.commit()
 if 'data' not in st.session_state:
     st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
 
+# Função para formatar a data para o formato brasileiro dd/mm/yyyy
+def formatar_data_para_ptbr(data):
+    return data.strftime('%d/%m/%Y')
+
+# Função para formatar a data para o formato ISO yyyy-mm-dd
+def formatar_data_para_iso(data):
+    return data.strftime('%Y-%m-%d')
+
 # Função para cadastrar serviços
 def cadastrar_servico():
     empresa = st.selectbox("Escolha a Empresa", empresas_disponiveis, key=f"empresa_cadastro")
@@ -42,12 +51,18 @@ def cadastrar_servico():
     data = st.date_input("Data", key=f"data_cadastro")
     quantidade = st.number_input("Quantidade", min_value=1, step=1, key=f"quantidade_cadastro")
 
+    # Formatar a data para o formato ISO antes de salvar no banco
+    data_iso = formatar_data_para_iso(data)
+
     if st.button("Cadastrar Serviço"):
-        cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?) ",
-                       (empresa, servico, data, setor, quantidade))
-        conn.commit()
-        st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-        st.success("Serviço cadastrado com sucesso!")
+        if empresa == "Selecione" or servico == "Selecione" or setor == "Selecione":
+            st.warning("Por favor, selecione todos os campos.")
+        else:
+            cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?)",
+                           (empresa, servico, data_iso, setor, quantidade))
+            conn.commit()
+            st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
+            st.success("Serviço cadastrado com sucesso!")
 
 # Função para editar serviços
 def editar_servico():
@@ -61,13 +76,24 @@ def editar_servico():
         servico_index = servicos_disponiveis.index(registro['Servico']) if registro['Servico'] in servicos_disponiveis else 0
         servico = st.selectbox("Escolha o Serviço", servicos_disponiveis, index=servico_index, key=f"servico_editar")
         setor = st.selectbox("Escolha o Setor", setores_disponiveis, index=setores_disponiveis.index(registro['Setor']), key=f"setor_editar")
-        data = st.date_input("Data", value=pd.to_datetime(registro['Data']), key=f"data_editar")
+
+        # Verifica o formato da data no banco e faz a conversão necessária
+        try:
+            data = datetime.strptime(registro['Data'], '%d/%m/%Y')  # Se já estiver em formato pt-BR
+        except ValueError:
+            data = datetime.strptime(registro['Data'], '%Y-%m-%d')  # Caso esteja no formato ISO
+
+        data_editada = st.date_input("Data", value=data, key=f"data_editar")
+
         quantidade = st.number_input("Quantidade", min_value=1, step=1, value=registro['Quantidade'], key=f"quantidade_editar")
 
         if st.button("Salvar Edição"):
+            # Formatar a data para o formato ISO ao salvar
+            data_editada_iso = formatar_data_para_iso(data_editada)
+
             cursor.execute("""UPDATE servicos
                 SET Empresa = ?, Servico = ?, Data = ?, Setor = ?, Quantidade = ?
-                WHERE ID = ?""", (empresa, servico, data, setor, quantidade, id_editar))
+                WHERE ID = ?""", (empresa, servico, data_editada_iso, setor, quantidade, id_editar))
             conn.commit()
             st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
             st.success("Serviço editado com sucesso!")
@@ -75,19 +101,16 @@ def editar_servico():
 # Função para excluir serviços (marcar como inativo)
 def excluir_servico():
     if not st.session_state.data.empty:
-        # Adiciona a opção "Selecione" na seleção de serviços
-        id_excluir = st.selectbox("Selecione o ID do Serviço para Excluir", ["Selecione"] + list(st.session_state.data['ID']), key=f"id_excluir")
+        id_excluir = st.selectbox("Selecione o ID do Serviço para Excluir", st.session_state.data['ID'], key=f"id_excluir")
 
-        if id_excluir != "Selecione":
-            if st.button("Excluir Serviço"):
-                cursor.execute("UPDATE servicos SET Ativo = 0 WHERE ID = ?", (id_excluir,))
-                conn.commit()
-                st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-                st.success("Serviço excluído com sucesso!")
+        if st.button("Excluir Serviço"):
+            cursor.execute("UPDATE servicos SET Ativo = 0 WHERE ID = ?", (id_excluir,))
+            conn.commit()
+            st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
+            st.success("Serviço excluído com sucesso!")
 
 # Função para gerar relatório em PDF por setor e serviço
 def gerar_relatorio_pdf_por_setor(empresa_selecionada):
-    # Consulta para obter serviços por setor
     query = """
     SELECT Setor, Servico, SUM(Quantidade) AS Total
     FROM servicos
@@ -111,20 +134,15 @@ def gerar_relatorio_pdf_por_setor(empresa_selecionada):
 
     pdf.set_font("Arial", '', 12)
 
-    # Agrupar os resultados por setor
     for setor, grupo in df_resultados.groupby('Setor'):
-        # Adicionar o nome do setor uma vez
         pdf.cell(80, 10, setor, border=1)
-
-        # Para o primeiro serviço, mostra o nome do serviço e total
         primeiro_servico = grupo.iloc[0]
         pdf.cell(80, 10, primeiro_servico["Servico"], border=1)
         pdf.cell(40, 10, str(primeiro_servico["Total"]), border=1)
         pdf.ln()
 
-        # Adicionar os demais serviços do mesmo setor
         for _, linha in grupo.iloc[1:].iterrows():
-            pdf.cell(80, 10, "", border=1)  # Espaço vazio para a coluna de setor
+            pdf.cell(80, 10, "", border=1)
             pdf.cell(80, 10, linha["Servico"], border=1)
             pdf.cell(40, 10, str(linha["Total"]), border=1)
             pdf.ln()
@@ -160,33 +178,34 @@ def consultar_quantidade_servicos_empresa():
         df_resultados = pd.read_sql_query(query, conn, params=(empresa_selecionada,))
         
         if not df_resultados.empty:
-            st.dataframe(df_resultados)
-            # Gerar relatório PDF
-            if st.button("Emitir Relatório em PDF"):
-                pdf_file_name = gerar_relatorio_pdf_por_setor(empresa_selecionada)
-                with open(pdf_file_name, "rb") as f:
-                    st.download_button(
-                        label="Baixar Relatório PDF",
-                        data=f,
-                        file_name="relatorio_servicos.pdf",
-                        mime="application/pdf"
-                    )
+            st.write(df_resultados)
+
+            gerar_relatorio = st.checkbox("Gerar Relatório em PDF")
+
+            if gerar_relatorio:
+                pdf_file = gerar_relatorio_pdf_por_setor(empresa_selecionada)
+                with open(pdf_file, "rb") as f:
+                    st.download_button("Baixar Relatório em PDF", f, file_name=f"Relatorio_{empresa_selecionada}.pdf")
         else:
-            st.warning("Nenhum serviço encontrado para a empresa selecionada.")
+            st.warning(f"Não foram encontrados serviços para a empresa '{empresa_selecionada}'.")
 
-# Interface do Streamlit
-st.title("Cadastro de Serviços")
-cadastrar_servico()
-editar_servico()
-excluir_servico()
+# Título principal da aplicação
+st.title("Cadastro de Serviços por Empresa")
 
-st.subheader("Serviços Cadastrados")
-st.dataframe(st.session_state.data)
+# Abas da aplicação
+abas = st.tabs(["Cadastrar Serviço", "Editar Serviço", "Excluir Serviço", "Consultar Quantidade Total", "Consultar por Empresa"])
 
-# Seção para consultar a quantidade de serviços
-st.subheader("Consulta de Quantidade de Serviços")
-consultar_quantidade_servicos()
-consultar_quantidade_servicos_empresa()
+with abas[0]:
+    cadastrar_servico()
 
-# Fechar a conexão ao final
-conn.close()
+with abas[1]:
+    editar_servico()
+
+with abas[2]:
+    excluir_servico()
+
+with abas[3]:
+    consultar_quantidade_servicos()
+
+with abas[4]:
+    consultar_quantidade_servicos_empresa()
