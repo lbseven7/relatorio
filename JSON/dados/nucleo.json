@@ -1,0 +1,159 @@
+{
+    "escolas_nucleadas": {
+      "equipe_gestora": {
+        "diretor": "Ana Paula de Freitas",
+        "vice_diretor": ["Fernanda Xavier dos S. Almeida", "Rosemery Costa S. da Purificação"],
+        "coordenador": ["Gilcilea Marinho Peixoto", "Aline Santos Aragão"],
+        "secretario_escolar": "Elaine Costa Lopes"
+      },
+      "servidores_efetivos": [
+        {
+          "escola": "Alirio Santos Souza",
+          "docente": "Virginia Silva Santos",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "Dom Sebastião Leme",
+          "docente": "Barbara Ferreira Santos Silva",
+          "ch": 20,
+          "observacoes": "Monteiro"
+        },
+        {
+          "escola": "Dom Sebastião Leme",
+          "docente": "Mª Conceição dos S. Ribeiro Reis",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "Dom Sebastião Leme",
+          "docente": "Alex Moreira dos Santos",
+          "ch": 20,
+          "observacoes": "ok"
+        },
+        {
+          "escola": "Estrelinha",
+          "docente": "Janete Ferreira dos Santos",
+          "ch": 20,
+          "observacoes": "Monteiro"
+        },
+        {
+          "escola": "Frei Mariano de Inhambupe",
+          "docente": "Regina Celi Santos de Souza",
+          "ch": 20,
+          "observacoes": "Monteiro"
+        },
+        {
+          "escola": "Frei Mariano de Inhambupe",
+          "docente": "Mª das Graças R. Novais",
+          "ch": null,
+          "observacoes": "Remoção provisória"
+        },
+        {
+          "escola": "Gloria Barreto",
+          "docente": "Ana Célia Pereira de Oliveira",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "Idalina Andrade",
+          "docente": "Elania Barreto da Silva",
+          "ch": 20,
+          "observacoes": "Entroncamento"
+        },
+        {
+          "escola": "Ipiranga",
+          "docente": "Jusciane Moraes dos Santos",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "Italo Rabelo do Amaral",
+          "docente": "Maria Aparecida de Jesus Santos",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "José Inácio Pinto",
+          "docente": "Soraia Pereira dos Santos",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "escola": "José Raimundo Damasceno",
+          "docente": "Maria de Lourdes Soares Souza",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "escola": "São Bento",
+          "docente": "Cleide Lopes de Almeida",
+          "ch": 20,
+          "observacoes": "Sede"
+        }
+      ],
+      "desdobramentos": [
+        {
+          "docente": "Alirio Santos Souza",
+          "observacoes": "Rosimery Costa S. da Purificação, 20h, Vice Diretora"
+        },
+        {
+          "docente": "Osvaldo Cruz",
+          "observacoes": "Fernanda Xavier dos S. Almeida, 20h, Vice Diretora"
+        },
+        {
+          "docente": "Dom Sebastião Leme",
+          "observacoes": "Alex Moreira dos Santos, 20h"
+        },
+        {
+          "docente": "Gilcilea Marinho Peixoto",
+          "observacoes": "20h, Coordenadora"
+        }
+      ],
+      "servidores_contratados": [
+        {
+          "funcionario": "Leilane Silva Lima",
+          "ch": 40,
+          "funcao": "Atendente de Classe",
+          "escola": "José Raimundo/Alírio",
+          "observacoes": ""
+        },
+        {
+          "funcionario": "Adrielle dos Santos Menezes",
+          "ch": 20,
+          "funcao": "Professor",
+          "escola": "Pedro Avelino",
+          "observacoes": ""
+        },
+        {
+          "funcionario": "Daiana Santos da Silva",
+          "ch": 20,
+          "funcao": "Professor",
+          "escola": "São Bento",
+          "observacoes": ""
+        },
+        {
+          "funcionario": "Eliana Ramos dos Santos",
+          "ch": 20,
+          "funcao": "Professor",
+          "escola": "Idalina Andrade",
+          "observacoes": ""
+        },
+        {
+          "funcionario": "Jossélia dos Santos Silva",
+          "ch": 20,
+          "funcao": "Professor",
+          "escola": "Santa Luzia",
+          "observacoes": ""
+        },
+        {
+          "funcionario": "Renata Isabel dos Santos",
+          "ch": 20,
+          "funcao": "Professor",
+          "escola": "Valdemar José de Queiroz",
+          "observacoes": ""
+        }
+      ]
+    }
+  }
+  

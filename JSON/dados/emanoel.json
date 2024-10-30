@@ -1,0 +1,356 @@
+{
+    "escola": "Emanoel de Oliveira Brito",
+    "equipe_gestora": {
+      "diretor": "Sara Barreto Lima",
+      "vice_diretor": [
+        "Mª de Lurdes Soares Souza",
+        "Marucia Cristina da Silva"
+      ],
+      "coordenadora_pedagogica": "Nadja Santana da Hora Santos",
+      "secretaria": "Amora Monteiro de Lemos",
+      "assistente_administrativo": "Pedro Henrique Lopes Gondim"
+    },
+    "servidores_efetivos": [
+      {
+        "ordem": 1,
+        "docente": "Ângela Gomes dos Santos",
+        "ch": "20h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 2,
+        "docente": "Deizon Coelho da Silva",
+        "ch": "20h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 3,
+        "docente": "Elisangela de Sousa Costa",
+        "ch": "40h",
+        "observacoes": "Readaptada - CET"
+      },
+      {
+        "ordem": 4,
+        "docente": "Euflosina Izidio dos Santos",
+        "ch": "20h",
+        "observacoes": "INSS"
+      },
+      {
+        "ordem": 5,
+        "docente": "Fernanda dos Santos Mussi",
+        "ch": "20h",
+        "observacoes": "SMED"
+      },
+      {
+        "ordem": 6,
+        "docente": "Heraine Almeida Mendonça",
+        "ch": "20h",
+        "observacoes": "Remoção Provisória"
+      },
+      {
+        "ordem": 7,
+        "docente": "Jaciara Silva Santos Lima",
+        "ch": "20h",
+        "observacoes": "Remoção Provisória"
+      },
+      {
+        "ordem": 8,
+        "docente": "Joanadarc Menezes Trindade",
+        "ch": "20/20h",
+        "observacoes": "Remoção Provisória /SMED"
+      },
+      {
+        "ordem": 9,
+        "docente": "Jurema Bomfim de Quadros",
+        "ch": "40h",
+        "observacoes": "Escola Carneiro Ribeiro"
+      },
+      {
+        "ordem": 10,
+        "docente": "Luciana Teixeira Matos",
+        "ch": "20h",
+        "observacoes": "CEMAEE Alegria de Viver"
+      },
+      {
+        "ordem": 11,
+        "docente": "Malena Gonçalves dos Santos",
+        "ch": "20h",
+        "observacoes": "Remoção Provisória"
+      },
+      {
+        "ordem": 12,
+        "docente": "Maria da Paz Santos Brito Nogueira",
+        "ch": "40h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 13,
+        "docente": "Marucia Cristina da Silva",
+        "ch": "20/20h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 14,
+        "docente": "Ronalva de Fátima M. Amaral",
+        "ch": "40h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 15,
+        "docente": "Sara de Oliveira Neves",
+        "ch": "40h",
+        "observacoes": ""
+      },
+      {
+        "ordem": 16,
+        "docente": "Simone Barreto Lima",
+        "ch": "20/20h",
+        "observacoes": "SMED"
+      },
+      {
+        "ordem": 17,
+        "docente": "Thayse Santos Dattoli",
+        "ch": "40h",
+        "observacoes": "Readaptada"
+      },
+      {
+        "ordem": 18,
+        "docente": "Viviane Silva Souza",
+        "ch": "40h",
+        "observacoes": "CSU"
+      },
+      {
+        "ordem": 19,
+        "docente": "Wilma Martins Araújo",
+        "ch": "20/20h",
+        "observacoes": "APLB Sindicato"
+      },
+      {
+        "ordem": 20,
+        "docente": "Mª de Lurdes Soares Souza",
+        "ch": "20h",
+        "observacoes": "Vice-Diretora"
+      },
+      {
+        "ordem": 21,
+        "docente": "Sara Barreto Lima",
+        "ch": "20h",
+        "observacoes": "Diretora"
+      }
+    ],
+    "professores_desdobrados": [
+      {
+        "docente": "Mª de Lurdes Soares Souza",
+        "ch": "20h"
+      },
+      {
+        "docente": "Jaciara Silva Santos Lima",
+        "ch": "20h"
+      }
+    ],
+    "secretaria_escolar": [
+      {
+        "nome": "Amora Monteiro de Lemos",
+        "ch": "40h"
+      }
+    ],
+    "vigilantes": [
+      {
+        "nome": "Claudiolino de Jesus Silva",
+        "ch": "44h"
+      },
+      {
+        "nome": "Gesse Judson Sousa dos Santos",
+        "ch": "44h"
+      }
+    ],
+    "aux_servico_escolar": [
+      {
+        "nome": "Amanda Bomfim Sales",
+        "ch": "30h",
+        "observacoes": "Carneiro Ribeiro"
+      },
+      {
+        "nome": "Antonio Marcos Ramos dos Santos",
+        "ch": "30h",
+        "observacoes": "Afastado"
+      },
+      {
+        "nome": "Daiany dos Santos Barreto Barbosa",
+        "ch": "30h",
+        "observacoes": "Readaptada"
+      },
+      {
+        "nome": "Eleni Pereira",
+        "ch": "30h",
+        "observacoes": ""
+      },
+      {
+        "nome": "Eline da Silva Santos",
+        "ch": "30h",
+        "observacoes": "Readaptada"
+      },
+      {
+        "nome": "Eloina Silva Lima",
+        "ch": "30h",
+        "observacoes": ""
+      }
+    ],
+    "servidores_contratados": [
+      {
+        "n": 1,
+        "funcionario": "Pedro Henrique Lopes Gondim",
+        "ch": 40,
+        "funcao": "Assistente Administrativo",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Maiane Sousa Silva",
+        "ch": 40,
+        "funcao": "Atendente de Classe",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Aldecir de Jesus Macedo",
+        "ch": 40,
+        "funcao": "Auxiliar de Infraestrutura Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 2,
+        "funcionario": "Deisiane Brito Dos Santos",
+        "ch": 40,
+        "funcao": "Auxiliar de Infraestrutura Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 3,
+        "funcionario": "Eliana Geralda Santos",
+        "ch": 40,
+        "funcao": "Auxiliar de Infraestrutura Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 4,
+        "funcionario": "Ivonaide Guedes Pereira Santos",
+        "ch": 40,
+        "funcao": "Auxiliar de Infraestrutura Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 5,
+        "funcionario": "Jaine dos Santos Costa",
+        "ch": 40,
+        "funcao": "Auxiliar de Infraestrutura Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Nadja Santana da Hora Santos",
+        "ch": 20,
+        "funcao": "Coordenador Pedagógico",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Ana Lucia Flois Lima",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 2,
+        "funcionario": "Eliane Costa Araujo Vaes",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 3,
+        "funcionario": "Jamile de Jesus Santos",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 4,
+        "funcionario": "Leisy Mony de Souza Freitas",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 5,
+        "funcionario": "Luciane Araujo Sampaio",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 6,
+        "funcionario": "Magdiel Costa Sousa",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 7,
+        "funcionario": "Mateus Santos Costa",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 8,
+        "funcionario": "Mirele dos Santos Costa",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 9,
+        "funcionario": "Naiara dos Santos Brandão",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 10,
+        "funcionario": "Tamara Mascarenhas de Oliveira",
+        "ch": 20,
+        "funcao": "Professor",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Vinicius de Sousa Dias",
+        "ch": 40,
+        "funcao": "Secretário Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 1,
+        "funcionario": "Marcelo Ribeiro dos Santos",
+        "ch": 40,
+        "funcao": "Vigilante Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 2,
+        "funcionario": "Moises Passos de Brito",
+        "ch": 40,
+        "funcao": "Vigilante Escolar",
+        "observacao": ""
+      },
+      {
+        "n": 3,
+        "funcionario": "Valdemir Dias Bispo",
+        "ch": 40,
+        "funcao": "Vigilante Escolar",
+        "observacao": ""
+      }
+    ]
+  }
+  

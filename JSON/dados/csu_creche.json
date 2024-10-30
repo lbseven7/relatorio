@@ -1,0 +1,110 @@
+{
+    "escola": "Escola Mundo Infantil - C.S.U/Creche",
+    "equipe_gestora": {
+      "diretor": "Elyane de Souza Colchesque",
+      "vice_diretor": "Flávia Andrade Aragão",
+      "secretaria_escolar": "Laysa Gabriele Mendes Martins",
+      "coordenadora": "Claudia Moreira Costa"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        {
+          "nome": "Daiane Marques de Oliveira Ferreira",
+          "CH": 20
+        },
+        {
+          "nome": "Eliana dos Santos Nascimento Brandão",
+          "CH": 40
+        },
+        {
+          "nome": "Elisabete Cortes Piropo",
+          "CH": 20
+        },
+        {
+          "nome": "Elisângela Almeida dos Santos",
+          "CH": 20
+        },
+        {
+          "nome": "Elizabeth Santos Silva",
+          "CH": 20
+        },
+        {
+          "nome": "Elyane de Souza Colchesque",
+          "CH": 20,
+          "observacao": "Diretora"
+        },
+        {
+          "nome": "Flávia Andrade Aragão",
+          "CH": 20,
+          "observacao": "Vice-diretora"
+        },
+        {
+          "nome": "Iara Carneiro Lula",
+          "CH": 20,
+          "observacao": "Readaptada"
+        },
+        {
+          "nome": "Juciane Moraes dos Santos",
+          "CH": 20,
+          "observacao": "Remoção provisória"
+        },
+        {
+          "nome": "Raimunda Macedo Bomfim Costa",
+          "CH": 40
+        },
+        {
+          "nome": "Viviane Silva Sousa",
+          "CH": 40,
+          "observacao": "Remoção provisória"
+        }
+      ],
+      "professor_desdobrado": {
+        "nome": "Juciane Moraes dos Santos",
+        "CH": 20
+      },
+      "coordenadora_pedagogica": {
+        "nome": "Claudia Moreira Costa",
+        "CH": 20
+      },
+      "vigilantes": [
+        {
+          "nome": "Vandivaldo de Jesus Trindade",
+          "CH": 40,
+          "turno": "Diurno"
+        }
+      ],
+      "atendente_classe": [
+        {
+          "nome": "Jamily Mota Teixeira",
+          "CH": 40,
+          "observacao": "Está no Luzia"
+        },
+        {
+          "nome": "Ezenilda Santos dos Anjos",
+          "CH": 40
+        },
+        {
+          "nome": "Leila Cristina Silva de Abreu",
+          "CH": 40,
+          "observacao": "Cedida à cultura"
+        },
+        {
+          "nome": "Liliane Barbosa Cardozo",
+          "CH": 40,
+          "observacao": "Está na Stela"
+        }
+      ],
+      "aux_servico_escolar": [
+        {
+          "nome": "Edna Maria Oliveira de Souza",
+          "CH": 30
+        },
+        {
+          "nome": "Eli Silva Carvalho",
+          "CH": 40,
+          "observacao": "Vigilante Noturno"
+        }
+      ]
+    }
+  }
+  

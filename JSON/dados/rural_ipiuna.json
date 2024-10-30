@@ -1,0 +1,299 @@
+{
+    "escola_rural_de_ipiuna": {
+      "equipe_gestora": {
+        "diretor": "Gorete Miranda dos Santos",
+        "vice_diretor": ["Maria Sonia Costa Lima", "Miralva da Silva Santos"],
+        "coordenador": ["Leila Cristina de Souza Costa Barreto", "Marli S. Andrade"],
+        "secretario_escolar": "Carlos Alberto Marques Nascimento",
+        "assistente_administrativo": "Elane Santana Santos"
+      },
+      "servidores_efetivos": [
+        {
+          "docente": "Amarildo de Sousa Teixeira",
+          "ch": 20,
+          "observacoes": "SMED/UPT"
+        },
+        {
+          "docente": "Ana Lucia da Costa Lima",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Daiani da Costa Amaral",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Debora da Silva Porto",
+          "ch": 20,
+          "observacoes": "Itiruçu/Permuta"
+        },
+        {
+          "docente": "Gorete Miranda dos Santos",
+          "ch": 20,
+          "observacoes": "Diretora"
+        },
+        {
+          "docente": "Hemilena Bastos de Santana",
+          "ch": "20/20",
+          "observacoes": "Readaptada"
+        },
+        {
+          "docente": "Iany Caroline Melo de Souza",
+          "ch": 20,
+          "observacoes": "Mestrado"
+        },
+        {
+          "docente": "Indiara da Silva Pereira",
+          "ch": 20,
+          "observacoes": "Luzia Silva"
+        },
+        {
+          "docente": "Jocilene Santos Portugal",
+          "ch": "20/20",
+          "observacoes": ""
+        },
+        {
+          "docente": "Keila S. Borges",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Luciano Olímpio Rabelo",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Marcia de Almeida Correia",
+          "ch": 20,
+          "observacoes": "Readaptada Luzia Silva"
+        },
+        {
+          "docente": "Maria Gorete Ferreira Santos",
+          "ch": "20/20",
+          "observacoes": ""
+        },
+        {
+          "docente": "Maria Sônia Costa Lima",
+          "ch": 40,
+          "observacoes": "20 vice"
+        },
+        {
+          "docente": "Miralva da Silva Santos",
+          "ch": 20,
+          "observacoes": "Vice-Diretora"
+        },
+        {
+          "docente": "Rosenildo dos Santos Piropo",
+          "ch": 40,
+          "observacoes": "Afastado"
+        },
+        {
+          "docente": "Rossilva Nascimento dos Santos",
+          "ch": 40,
+          "observacoes": ""
+        },
+        {
+          "docente": "Roziane Sousa de Almeida",
+          "ch": 20,
+          "observacoes": "Lomanto Jr"
+        },
+        {
+          "docente": "Tamandaré Gandhi Piropo",
+          "ch": 20,
+          "observacoes": "Luzia Silva"
+        },
+        {
+          "docente": "Thayse Santos Dattoli",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "docente": "Vécio Luiz L. Lima",
+          "ch": 20,
+          "observacoes": "Diana"
+        },
+        {
+          "docente": "Viviane Pereira Santos",
+          "ch": "20/20",
+          "observacoes": "CME"
+        }
+      ],
+      "professor_desdobrado": [
+        {
+          "docente": "Luciano Olímpio Rabelo",
+          "ch": 20
+        },
+        {
+          "docente": "Miralva da Silva Santos",
+          "ch": 20
+        }
+      ],
+      "coordenadora_pedagogica": {
+        "nome": "Leila Cristina de Souza Costa Barreto",
+        "ch": 40
+      },
+      "secretario_escolar": {
+        "nome": "Carlos Alberto Marques Nascimento",
+        "ch": 40
+      },
+      "vigilantes": [
+        {
+          "nome": "Givanildo Braga dos Santos",
+          "ch": 40
+        }
+      ],
+      "aux_infraestrutura_escolar": [
+        {
+          "nome": "Edvânia Fernandes Brandão",
+          "ch": 30,
+          "observacoes": "Readaptada"
+        },
+        {
+          "nome": "Franciara Fonseca Alves",
+          "ch": 30
+        },
+        {
+          "nome": "Helena de Souza Santos",
+          "ch": 30,
+          "observacoes": "Merendeira"
+        },
+        {
+          "nome": "Solange Coelho Oliveira",
+          "ch": 30
+        }
+      ],
+      "servidores_contratados": {
+        "atendentes_de_classe": [
+          {
+            "nome": "Natane Brandão Santana",
+            "ch": 40
+          }
+        ],
+        "aux_alimentacao_escolar": [
+          {
+            "nome": "Alielza de Jesus Palma Brito",
+            "ch": 40
+          },
+          {
+            "nome": "Juliana Franca dos Santos",
+            "ch": 40
+          }
+        ],
+        "professores_regentes": [
+          {
+            "nome": "Conceição de O. Deodato Leal",
+            "ch": 20
+          },
+          {
+            "nome": "Daiana Brito de Jesus",
+            "ch": 20
+          },
+          {
+            "nome": "Eriene Pereira Ribeiro",
+            "ch": 20
+          },
+          {
+            "nome": "Irandir Santos Aragão",
+            "ch": 20
+          },
+          {
+            "nome": "Ivonice Coelho R. de Jesus",
+            "ch": 20
+          },
+          {
+            "nome": "Juliana Santos de Matos",
+            "ch": 20
+          },
+          {
+            "nome": "Jurema Ribeiro de Sena",
+            "ch": 20
+          },
+          {
+            "nome": "Katia Bastos Oliveira",
+            "ch": 20
+          },
+          {
+            "nome": "Lana Coelho dos S. Marinho",
+            "ch": 20
+          },
+          {
+            "nome": "Leiliane Rocha Andrade",
+            "ch": 20
+          },
+          {
+            "nome": "Luzinete Santos de Jesus",
+            "ch": 20
+          },
+          {
+            "nome": "Magnolia Lima Barreto",
+            "ch": 20
+          },
+          {
+            "nome": "Samia Lima Alves",
+            "ch": 20
+          },
+          {
+            "nome": "Sara Palma Brito",
+            "ch": 20
+          },
+          {
+            "nome": "Vivia Carla M. das Mercês",
+            "ch": 20
+          }
+        ],
+        "profissionais_de_apoio": [
+          {
+            "nome": "Cleidineia Santos Pereira",
+            "ch": 40,
+            "funcao": "Profissional de Apoio à alunos com deficiência"
+          },
+          {
+            "nome": "Silvana Silva Brandao",
+            "ch": 40,
+            "funcao": "Profissional de Apoio à aluno com deficiência"
+          },
+          {
+            "nome": "Taislane de Jesus Coelho",
+            "ch": 40,
+            "funcao": "Profissional de Apoio à aluno com deficiência"
+          }
+        ],
+        "servicos_gerais": [
+          {
+            "nome": "Daiane Mendes da Silva",
+            "ch": 40
+          },
+          {
+            "nome": "Geisa Palma Moraes",
+            "ch": 40
+          },
+          {
+            "nome": "Gilvania Sousa dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Henrique Brito Bispo",
+            "ch": 40
+          },
+          {
+            "nome": "Jacilvania de O. Santos Evaristo",
+            "ch": 40
+          }
+        ],
+        "vigilantes": [
+          {
+            "nome": "Adenilton Gomes dos Santos",
+            "ch": 40,
+            "turno": "Diurno"
+          },
+          {
+            "nome": "Jose Paulo de Sousa",
+            "ch": 40,
+            "turno": "Noturno"
+          }
+        ]
+      }
+    }
+  }
+  

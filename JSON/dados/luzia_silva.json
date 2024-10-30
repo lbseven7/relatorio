@@ -1,0 +1,88 @@
+{
+    "escola": "Colégio Luzia Silva",
+    "equipe_gestora": {
+      "diretor": "Jocélia Santos Andrade",
+      "vice_diretores": [
+        "Iracema da S. S. Oliveira",
+        "Indiara da Silva Pereira"
+      ],
+      "coordenador": "Adrielly Di Tommaso Colangeli Carvalho",
+      "secretario_escolar": "Ângela Bispo Soares"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        { "nome": "Carmelita Nasc. Santos", "ch": 40 },
+        { "nome": "Cristina Tereza A. de Almeida", "ch": 40 },
+        { "nome": "Elisângela Cerqueira Pereira", "ch": 20 },
+        { "nome": "Elisangela Silva das Neves", "ch": 40 },
+        { "nome": "Indiara da Silva Pereira", "ch": 40, "observacoes": "20 provisória" },
+        { "nome": "Iracema da S. S. Oliveira", "ch": 20, "observacoes": "Vice-diretora" },
+        { "nome": "Itana Sousa da Silva", "ch": 20, "observacoes": "Stela" },
+        { "nome": "Jocélia Santos Andrade", "ch": 20, "observacoes": "Diretora" },
+        { "nome": "Núbia Cristina R. Silva", "ch": 20 },
+        { "nome": "Rosa Maria Araújo Porto", "ch": 20 },
+        { "nome": "Tamandaré Gandhi Piropo", "ch": 20 },
+        { "nome": "Zilma Cabral de Aragão", "ch": 40, "observacoes": "20 provisória" }
+      ],
+      "professores_desdobrados": [
+        { "nome": "Elisângela Cerqueira Pereira", "ch": 20 },
+        { "nome": "Iracema da S. S. Oliveira", "ch": 20 }
+      ],
+      "secretario_escolar": [
+        { "nome": "Ângela Bispo Soares", "ch": 40 }
+      ],
+      "professora_permutada": [
+        { "nome": "Maíra Lemos Reis", "ch": 20 }
+      ],
+      "atendente_de_classe": [
+        { "nome": "Jamilly Mota Teixeira", "ch": 40 }
+      ],
+      "auxiliares_infraestrutura_escolar": [
+        { "nome": "Claudionice de Jesus Silva", "ch": 30, "observacoes": "Readaptada" },
+        { "nome": "Eliane Cerqueira Pereira", "ch": 30 },
+        { "nome": "Genilda de Jesus Santos", "ch": 30 },
+        { "nome": "Juciara Andrade Almeida", "ch": 30, "observacoes": "Readaptada" },
+        { "nome": "Luziana Almeida de Jesus", "ch": 30 },
+        { "nome": "Uilma Sampaio dos Santos", "ch": 30 },
+        { "nome": "Verlandio dos Santos", "ch": 30, "observacoes": "Vigilante noturno" }
+      ]
+    },
+    "servidores_contratados": {
+      "assistente_administrativo": [
+        { "nome": "Breno Reis Andrade", "ch": 40 }
+      ],
+      "atendentes_de_classe": [
+        { "nome": "Ingrid da Silva Santos", "ch": 40 },
+        { "nome": "Ludimila Bonfim Nascimento", "ch": 40 },
+        { "nome": "Naiane dos Santos Souza Moreira", "ch": 40 },
+        { "nome": "Shirley Santos de Almeida", "ch": 40 },
+        { "nome": "Suely Santos Pereira", "ch": 40 },
+        { "nome": "Vilma Souza Santos Mira Lopes", "ch": 40 }
+      ],
+      "auxiliares_infraestrutura_escolar": [
+        { "nome": "Angelia Souza Dos Santos", "ch": 40 },
+        { "nome": "Betania Pereira Amorim Peixinho", "ch": 40 },
+        { "nome": "Cassia Ferreira de Santana", "ch": 40 },
+        { "nome": "Ieda Dos Santos Silva", "ch": 40 },
+        { "nome": "Jose Carlos Cerqueira Mascarenhas Jr", "ch": 40 },
+        { "nome": "Karolyne Santos de Jesus", "ch": 40 }
+      ],
+      "coordenador_pedagogico": [
+        { "nome": "Adrielly Di Tommaso Colangeli Carvalho", "ch": 20 }
+      ],
+      "professores": [
+        { "nome": "Edineia Carvalho Dos Santos de Assis", "ch": 20 },
+        { "nome": "Eliane Santos Moreira", "ch": 20 },
+        { "nome": "Erica Costa Da Silva", "ch": 20 },
+        { "nome": "Luana Clissia Santos Franco", "ch": 20 },
+        { "nome": "Marcio Santos Costa", "ch": 20 },
+        { "nome": "Maria do Carmo Oliveira Dos Santos", "ch": 20 },
+        { "nome": "Tarcília Saraiva dos Santos Souza", "ch": 20 },
+        { "nome": "Veridiana Severina da Silva", "ch": 20 }
+      ],
+      "vigilante_escolar": [
+        { "nome": "Magno Marcel Piropo Santos", "ch": 40 }
+      ]
+    }
+  }
+  

@@ -5,22 +5,18 @@ from fpdf import FPDF
 import tempfile
 import json
 
-
 # Carregar listas de serviços, empresas e setores do arquivo JSON
 with open('dados.json', 'r', encoding='utf-8') as f:
     dados = json.load(f)
-
 
 # Acessando as listas
 servicos_disponiveis = dados["servicos_disponiveis"]
 empresas_disponiveis = dados["empresas_disponiveis"]
 setores_disponiveis = dados["setores_disponiveis"]
 
-
 # Conectar ao banco de dados SQLite
 conn = sqlite3.connect("servicos.db")
 cursor = conn.cursor()
-
 
 # Criar tabela se não existir
 cursor.execute("""CREATE TABLE IF NOT EXISTS servicos (
@@ -34,11 +30,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS servicos (
 )""")
 conn.commit()
 
-
 # Inicializar o DataFrame para armazenar os dados
 if 'data' not in st.session_state:
     st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-
 
 # Função para cadastrar serviços
 def cadastrar_servico():
@@ -48,7 +42,6 @@ def cadastrar_servico():
     data = st.date_input("Data", key="data_cadastro")
     quantidade = st.number_input("Quantidade", min_value=1, step=1, key="quantidade_cadastro")
 
-
     if st.button("Cadastrar Serviço"):
         cursor.execute("INSERT INTO servicos (Empresa, Servico, Data, Setor, Quantidade) VALUES (?, ?, ?, ?, ?) ",
                        (empresa, servico, data, setor, quantidade))
@@ -56,20 +49,16 @@ def cadastrar_servico():
         st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
         st.success("Serviço cadastrado com sucesso!")
 
-
 # Função para editar serviços
 def editar_servico():
     if not st.session_state.data.empty:
         id_editar = st.selectbox("Selecione o Serviço para Editar", st.session_state.data['Servico'].unique(), key="servico_editar")
 
-
         if id_editar:
             registros = st.session_state.data[st.session_state.data['Servico'] == id_editar]
 
-
             if not registros.empty:
                 registro = registros.iloc[0]
-
 
                 empresa = st.selectbox("Escolha a Empresa", empresas_disponiveis,
                                        index=empresas_disponiveis.index(registro['Empresa']) if registro['Empresa'] in empresas_disponiveis else 0)
@@ -80,7 +69,6 @@ def editar_servico():
                 data = st.date_input("Data", value=pd.to_datetime(registro['Data']))
                 quantidade = st.number_input("Quantidade", min_value=1, step=1, value=registro['Quantidade'])
 
-
                 if st.button("Salvar Edição"):
                     cursor.execute("""UPDATE servicos
                         SET Empresa = ?, Servico = ?, Data = ?, Setor = ?, Quantidade = ?
@@ -89,24 +77,32 @@ def editar_servico():
                     st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
                     st.success("Serviço editado com sucesso!")
 
-
 # Função para excluir serviços (marcar como inativo)
+# Função para excluir serviços (marcar como inativo pelo ID)
+# Função para excluir serviços (excluir permanentemente pelo ID)
 def excluir_servico():
     if not st.session_state.data.empty:
-        servico_excluir = st.selectbox("Selecione o Serviço para Excluir", st.session_state.data['Servico'].unique(), key="servico_excluir")
+        # Exibir os registros com ID para selecionar
+        servicos_excluir = st.session_state.data[['ID', 'Servico', 'Empresa', 'Data', 'Setor']]
+        servicos_excluir['Descricao'] = servicos_excluir.apply(lambda row: f"ID: {row['ID']} - {row['Servico']} ({row['Empresa']}, {row['Setor']}, {row['Data']})", axis=1)
 
+        servico_selecionado = st.selectbox("Selecione o Serviço para Excluir", servicos_excluir['Descricao'])
 
-        if servico_excluir:
+        if servico_selecionado:
+            # Extrair o ID do registro selecionado
+            id_excluir = int(servico_selecionado.split(' ')[1])
+
             if st.button("Excluir Serviço"):
-                cursor.execute("UPDATE servicos SET Ativo = 0 WHERE Servico = ?", (servico_excluir,))
+                # Excluir permanentemente o registro do banco de dados
+                cursor.execute("DELETE FROM servicos WHERE ID = ?", (id_excluir,))
                 conn.commit()
                 st.session_state.data = pd.read_sql_query("SELECT * FROM servicos WHERE Ativo = 1", conn)
-                st.success("Serviço excluído com sucesso!")
+                st.success(f"Serviço com ID {id_excluir} excluído permanentemente!")
+
 
 
 # Função para gerar relatório em PDF por setor e serviço
 def gerar_relatorio_pdf_por_setor(empresa_selecionada):
-    # Consulta para obter serviços por setor
     query = """
     SELECT Setor, Servico, SUM(Quantidade) AS Total
     FROM servicos
@@ -119,9 +115,8 @@ def gerar_relatorio_pdf_por_setor(empresa_selecionada):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", 'B', 16)
-    pdf.cell(0, 10, f"Relatório de Serviços para a Empresa: {empresa_selecionada}", ln=True, align='C')
+    pdf.cell(0, 10, f"Relatório de Serviços: {empresa_selecionada}", ln=True, align='C')
     pdf.ln(10)
-
 
     pdf.set_font("Arial", 'B', 12)
     pdf.cell(80, 10, "Setor", border=1)
@@ -129,20 +124,15 @@ def gerar_relatorio_pdf_por_setor(empresa_selecionada):
     pdf.cell(40, 10, "Total de Serviços", border=1)
     pdf.ln()
 
-
     pdf.set_font("Arial", '', 12)
 
-
-    # Agrupar os resultados por setor
     for setor, grupo in df_resultados.groupby('Setor'):
         pdf.cell(80, 10, setor, border=1)
-
 
         primeiro_servico = grupo.iloc[0]
         pdf.cell(80, 10, primeiro_servico["Servico"], border=1)
         pdf.cell(40, 10, str(primeiro_servico["Total"]), border=1)
         pdf.ln()
-
 
         for _, linha in grupo.iloc[1:].iterrows():
             pdf.cell(80, 10, "", border=1)
@@ -150,14 +140,11 @@ def gerar_relatorio_pdf_por_setor(empresa_selecionada):
             pdf.cell(40, 10, str(linha["Total"]), border=1)
             pdf.ln()
 
-
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
         pdf_file_name = tmp_file.name
         pdf.output(pdf_file_name)
 
-
     return pdf_file_name
-
 
 # Função para filtrar serviços por escola
 def filtrar_servicos_por_escola():
@@ -172,40 +159,32 @@ def filtrar_servicos_por_escola():
         """
         df_servicos = pd.read_sql_query(query, conn, params=(setor_selecionado,))
 
-
         if not df_servicos.empty:
             st.dataframe(df_servicos)
         else:
             st.warning(f"Nenhum serviço encontrado para o setor {setor_selecionado}.")
 
-
 # Interface do Streamlit
 st.title("Sistema de Gestão de Serviços")
 
-
 # Criação de abas
-aba = st.tabs(["Cadastro", "Edição", "Exclusão", "Consulta", "Relatório", "Filtrar por Escola"])
-
+aba = st.tabs(["Cadastro", "Edição", "Exclusão", "Consulta", "Relatório"])
 
 with aba[0]:
     st.header("Cadastro de Serviços")
     cadastrar_servico()
 
-
 with aba[1]:
     st.header("Edição de Serviços")
     editar_servico()
-
 
 with aba[2]:
     st.header("Exclusão de Serviços")
     excluir_servico()
 
-
 with aba[3]:
     st.header("Consulta de Serviços")
     filtrar_servicos_por_escola()
-
 
 with aba[4]:
     st.header("Relatório de Serviços")
@@ -221,9 +200,5 @@ with aba[4]:
                 mime="application/pdf"
             )
 
-
 # Fechar conexão com o banco de dados
 conn.close()
-
-
-

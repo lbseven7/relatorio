@@ -1,0 +1,106 @@
+Total de vagas reais de professores com observações: 78
+
+Observação: Readaptada
+  Nome: Valdeir dos Santos Vieira, Instituição: Instituição desconhecida
+  Nome: Arizete Mendes Souza, Instituição: Grupo Escolar Lomanto Júnior
+  Nome: Sueli Maria Bomfim de Andrade, Instituição: Instituição desconhecida
+  Nome: Rosa Nery Costa, Instituição: Escola Joaquim Nery de Souza
+  Nome: Mª da Conceição dos Santos Ribeiro, Instituição: Instituição desconhecida
+Observação: Doutorado
+  Nome: Maristela Amaral Ribeiro, Instituição: Instituição desconhecida
+  Nome: Karine Nascimento Silva, Instituição: Escola Joaquim Nery de Souza
+  Nome: Cleidineia Carvalho Santos, Instituição: Instituição desconhecida
+Observação: SMED
+  Nome: Gilcilea Marinho Peixoto, Instituição: Instituição desconhecida
+  Nome: Iramaia Araújo Santos, Instituição: Instituição desconhecida
+  Nome: Ivanete Santos Costa, Instituição: Instituição desconhecida
+  Nome: Elismara Bispo dos Santos, Instituição: Grupo Escolar Lomanto Júnior
+  Nome: Mª Telma Santos Costa, Instituição: Instituição desconhecida
+  Nome: Carlos Roberto Oliveira, Instituição: Instituição desconhecida
+Observação: Vice-Diretora
+  Nome: Joalce Jesus dos Santos Albino, Instituição: Instituição desconhecida
+  Nome: Cristiane Nascimento da Silva, Instituição: Instituição desconhecida
+  Nome: Iolene Bastos Nascimento, Instituição: Grupo Escolar Lomanto Júnior
+  Nome: Girleide Ramos dos Santos, Instituição: Instituição desconhecida
+  Nome: Joseli Cerqueira Freitas, Instituição: Instituição desconhecida
+Observação: Diretora
+  Nome: Roziane Souza de Almeida Andrade, Instituição: Grupo Escolar Lomanto Júnior
+  Nome: Marcia Silene Silva Menezes Almeida, Instituição: Escola Menandro Minahim
+  Nome: Mirian Santiago da Hora, Instituição: Instituição desconhecida
+  Nome: Jocélia Santos Andrade, Instituição: Colégio Luzia Silva
+  Nome: Ana Neta Sampaio de Jesus, Instituição: Escola Monteiro Lobato
+  Nome: Vilmara Araujo da Silva Correia, Instituição: Creche Municipal Marleide Pinto de Novaes Nunes
+  Nome: Ildete Santos Costa, Instituição: Instituição desconhecida
+Observação: Remoção Provisória
+  Nome: Barbara Ferreira S. Silva, Instituição: Escola Monteiro Lobato
+  Nome: Regina Celi S. de Souza, Instituição: Escola Monteiro Lobato
+  Nome: Eva Katia da Silva Santos, Instituição: Instituição desconhecida
+  Nome: Gerlan Oliveira Santos, Instituição: Instituição desconhecida
+  Nome: Janete Ferreira Santos, Instituição: Escola Monteiro Lobato
+  Nome: Ednalva Santos Costa, Instituição: Instituição desconhecida
+  Nome: Veronica Marques dos Santos Rebouças, Instituição: Instituição desconhecida
+  Nome: Romilda dos Santos Costa, Instituição: Instituição desconhecida
+  Nome: Luzinete de J. O. Miranda, Instituição: Instituição desconhecida
+  Nome: Claudina Santos Lima, Instituição: Instituição desconhecida
+  Nome: Katiane Castro dos Santos, Instituição: Instituição desconhecida
+Observação: Remoção Provisória - INSS
+  Nome: Evely Larissa Moreira Cavalcante, Instituição: Instituição desconhecida
+Observação: Diretora Arlinda
+  Nome: Ildete Santos Costa, Instituição: Instituição desconhecida
+Observação: APLB Sindicato
+  Nome: Joana Angélica dos Santos Silva, Instituição: Instituição desconhecida
+Observação: CEMAEE
+  Nome: Maria Conceição dos Santos Ribeiro Reis, Instituição: Instituição desconhecida
+Observação: Diretora Menandro
+  Nome: Marcia Silene Silva Menezes Almeida, Instituição: Instituição desconhecida
+Observação: Monteiro
+  Nome: Regina Celi Santos de Souza, Instituição: Instituição desconhecida
+Observação: CME
+  Nome: Andréia Dias da Silva, Instituição: Instituição desconhecida
+Observação: Menandro
+  Nome: Rosenilda Silva Santos, Instituição: Instituição desconhecida
+Observação: Vice Diana
+  Nome: Joelma dos Santos Silva, Instituição: Escola Joaquim Nery de Souza
+Observação: + 20 permuta de Itiruçu
+  Nome: Lauraci Araujo Oliveira, Instituição: Escola Joaquim Nery de Souza
+Observação: Sede
+  Nome: Luzinete de Jesus Miranda, Instituição: Escola Joaquim Nery de Souza
+Observação: INSS
+  Nome: Maria Anízia Ferreira Santos, Instituição: Escola Monteiro Lobato
+  Nome: Isnaia dos Santos Chaves, Instituição: Grupo Escolar Lomanto Júnior
+Observação: Remoção temporária
+  Nome: Sheila Souza Gonçalves, Instituição: Grupo Escolar Lomanto Júnior
+Observação: 20 provisória
+  Nome: Indiara da Silva Pereira, Instituição: Colégio Luzia Silva
+  Nome: Zilma Cabral de Aragão, Instituição: Colégio Luzia Silva
+Observação: Vice-diretora
+  Nome: Iracema da S. S. Oliveira, Instituição: Colégio Luzia Silva
+Observação: Stela
+  Nome: Itana Sousa da Silva, Instituição: Colégio Luzia Silva
+Observação: Vice Diretora
+  Nome: Cleide Lopes de Almeida Di Gregório, Instituição: Escola Menandro Minahim
+Observação: Remoção provisória
+  Nome: Ithana Dayse Alves Santos, Instituição: Escola Menandro Minahim
+  Nome: Girlandia Neves de Souza, Instituição: Escola Menandro Minahim
+  Nome: Rosenilda Silva Santos, Instituição: Escola Menandro Minahim
+Observação: Vice CET
+  Nome: Joalce Jesus dos Santos Albino, Instituição: Escola Menandro Minahim
+Observação: Mestrado
+  Nome: Leda Barreto Santos Reis, Instituição: Escola Menandro Minahim
+Observação: Diretora CET
+  Nome: Miriam Santiago da Hora, Instituição: Escola Menandro Minahim
+Observação: Readaptada CET
+  Nome: Sueli Maria Bomfim de Andrade, Instituição: Escola Menandro Minahim
+Observação: Remoção Temporária
+  Nome: Tania Braga Santos, Instituição: Escola Menandro Minahim
+Observação: Núcleo
+  Nome: Ana Valéria Pereira, Instituição: Escola Monteiro Lobato
+  Nome: Maria das Graças Ramos de Novaes, Instituição: Escola Monteiro Lobato
+Observação: Sede do município
+  Nome: Malena Gonçalves dos Santos, Instituição: Escola Monteiro Lobato
+  Nome: Joana D’Arc Menezes Trindade, Instituição: Escola Monteiro Lobato
+  Nome: Lanusse Moreira Cavalcante, Instituição: Escola Monteiro Lobato
+  Nome: Evely Larissa Moreira Cavalcante, Instituição: Escola Monteiro Lobato
+  Nome: Isolda Santos Sena, Instituição: Escola Monteiro Lobato
+Observação: Vice Diretor
+  Nome: Marivaldo Silva Santos, Instituição: Escola Monteiro Lobato

@@ -1,0 +1,101 @@
+{
+    "escola": "Escola Monteiro Lobato",
+    "equipe_gestora": {
+      "diretor": "Ana Neta Sampaio de Jesus",
+      "vice_diretor": ["Marivaldo Silva", "Ramon Silva Trindade"],
+      "coordenador": "Ivana Patrícia S. de Almeida",
+      "secretario_escolar": "Daniel Santos Fonseca",
+      "assistente_administrativo": "Maria Edineia Lima da Silva"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        { "nome": "Afrânio Jesus Passos", "ch": 20 },
+        { "nome": "Ana Neta Sampaio de Jesus", "ch": 20, "observacoes": "Diretora" },
+        { "nome": "Ana Valéria Pereira", "ch": 20, "observacoes": "Núcleo" },
+        { "nome": "Barbara Ferreira S. Silva", "ch": 20, "observacoes": "Remoção Provisória" },
+        { "nome": "Edilton Andrade Santos", "ch": 20 },
+        { "nome": "Evely Larissa Moreira Cavalcante", "ch": 20, "observacoes": "Sede do município" },
+        { "nome": "Isolda Santos Sena", "ch": 20, "observacoes": "Sede do município" },
+        { "nome": "Ivanil Geralda Maia Pereira", "ch": 20 },
+        { "nome": "Jackeline Ferreira de Jesus", "ch": 20 },
+        { "nome": "Janete Ferreira Santos", "ch": 20, "observacoes": "Remoção Provisória" },
+        { "nome": "Joana D’Arc Menezes Trindade", "ch": 20, "observacoes": "Sede do município" },
+        { "nome": "Joanita Santos Porto", "ch": 20 },
+        { "nome": "Lanusse Moreira Cavalcante", "ch": 20, "observacoes": "Sede do município" },
+        { "nome": "Malena Gonçalves dos Santos", "ch": 20, "observacoes": "Sede do município" },
+        { "nome": "Maria Anízia Ferreira Santos", "ch": 20, "observacoes": "INSS" },
+        { "nome": "Marivaldo Silva Santos", "ch": 20, "observacoes": "Vice Diretor" },
+        { "nome": "Maria das Graças Ramos de Novaes", "ch": 20, "observacoes": "Núcleo" },
+        { "nome": "Murilo Silva Santos", "ch": 20 },
+        { "nome": "Ramon Silva Trindade", "ch": 20 },
+        { "nome": "Regina Celi S. de Souza", "ch": 20, "observacoes": "Remoção Provisória" },
+        { "nome": "Roberto Santos Amorim", "ch": 20 },
+        { "nome": "Silenildo Lima Souza", "ch": 20 },
+        { "nome": "Silvia Leticia Santos da Silva", "ch": 20 }
+      ],
+      "solicitacao_desdobramento": [
+        { "nome": "Ivanil Geralda Maia Pereira", "ch": 20 },
+        { "nome": "Marivaldo Silva Santos", "ch": 20 },
+        { "nome": "Ramon Silva Trindade", "ch": 20 },
+        { "nome": "Silvia Leticia Santos da Silva", "ch": 20 },
+        { "nome": "Joanita Santos Porto", "ch": 20 }
+      ],
+      "vigilante": [
+        { "nome": "Josafá Ribeiro Pereira", "ch": 44 }
+      ],
+      "aux_servico_escolar": [
+        { "nome": "Beatriz Pereira Andrade", "ch": 30 },
+        { "nome": "Carine Santos Barreto", "ch": 30 },
+        { "nome": "Edileuza Alves dos Santos", "ch": 30 },
+        { "nome": "Enizaldete Uhl dos Santos", "ch": 30 },
+        { "nome": "Luzinete Rocha Santos", "ch": 30 },
+        { "nome": "Marcos Santos Pereirta", "ch": 30 },
+        { "nome": "Neila Ribeiro de Sena Uhl", "ch": 30 },
+        { "nome": "Railda da Silva Matos", "ch": 30 },
+        { "nome": "Samuel dos Santos Nascimento", "ch": 30 },
+        { "nome": "Sandra Carmo da Silva", "ch": 30 }
+      ]
+    },
+    "servidores_contratados": {
+      "assistente_administrativo": [
+        { "nome": "Maria Edineia Lima da Silva", "ch": 40 }
+      ],
+      "profissional_apoio_deficiencia": [
+        { "nome": "Elaine Santos Silva do Carmo", "ch": 40 },
+        { "nome": "Katiele dos Santos Brito", "ch": 40 },
+        { "nome": "Lorrany Vitoria Santos de Jesus", "ch": 40 },
+        { "nome": "Thaina Santos Bispo", "ch": 40 }
+      ],
+      "auxiliar_infraestrutura_escolar": [
+        { "nome": "Alcione Cardoso dos Santos", "ch": 40 },
+        { "nome": "Edenilda Ribeiro dos Reis", "ch": 40 },
+        { "nome": "Edneuza de Jesus Pereira dos Santos", "ch": 40 },
+        { "nome": "Ricardo Amorim Rocha", "ch": 40 }
+      ],
+      "coordenador_pedagogico": [
+        { "nome": "Ivana Patricia Santana de Almeida", "ch": 20 }
+      ],
+      "professores": [
+        { "nome": "Derivania de Sousa Trindade", "ch": 20 },
+        { "nome": "Elayne Uhl Andrade", "ch": 20 },
+        { "nome": "Eliane Teixeira Batista", "ch": 20 },
+        { "nome": "Elisangela Pereira Soares", "ch": 20 },
+        { "nome": "Geisa Sousa Silva Oliveira", "ch": 20 },
+        { "nome": "Juliana Ramos dos Santos Barreto", "ch": 20 },
+        { "nome": "Leda Santos de Jesus", "ch": 20 },
+        { "nome": "Luana Souza Santos", "ch": 20 },
+        { "nome": "Lucicleide Rodrigues Arruda", "ch": 20 },
+        { "nome": "Neilma Santos Silva de Almeida", "ch": 20 },
+        { "nome": "Silvana Rocha Santos", "ch": 20 }
+      ],
+      "secretario_escolar": [
+        { "nome": "Daniel Santos Fonseca", "ch": 40 }
+      ],
+      "vigilante_escolar": [
+        { "nome": "Alison Silva dos Santos", "ch": 40 },
+        { "nome": "Ivanildo de Souza Santos", "ch": 40 },
+        { "nome": "Jurandy Mota Pereira", "ch": 40 }
+      ]
+    }
+  }
+  

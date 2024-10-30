@@ -1,0 +1,320 @@
+{
+    "escola_stela_camara_dubois": {
+      "equipe_gestora": {
+        "diretor": "Vanusa Ferreira Pirôpo",
+        "vice_diretor": ["Marcia Santos Miranda", "Rosilene Alves Matos"],
+        "coordenador": ["Robeleide Cintra Souza Silva", "Lucas Colangeli de Souza"],
+        "secretario": "Nilton Bastos de Santana",
+        "assistente_administrativo": "Tyana Gonçalves dos Santos"
+      },
+      "servidores_efetivos": [
+        {
+          "docente": "Andreya Costa Soares e Sousa",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Cristina Lima Sousa",
+          "ch": 40,
+          "observacoes": ""
+        },
+        {
+          "docente": "Cristina Sousa Nascimento",
+          "ch": 40,
+          "observacoes": ""
+        },
+        {
+          "docente": "Edinalva Sandra de Jesus dos Santos",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Eliene Andrade Texeira da Hora",
+          "ch": 40,
+          "observacoes": ""
+        },
+        {
+          "docente": "Geovanice da Silva D’Onófrio",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Guadnajara Teles Barreto",
+          "ch": 20,
+          "observacoes": "Diretora Lourival"
+        },
+        {
+          "docente": "Katiane Castro",
+          "ch": 20,
+          "observacoes": "CET"
+        },
+        {
+          "docente": "Marcia Santos Miranda",
+          "ch": 20,
+          "observacoes": "Vice-Diretora"
+        },
+        {
+          "docente": "Milena Lima Tamboriello",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Nelma Oliveira Souza",
+          "ch": 20,
+          "observacoes": "Remoção Provisória"
+        },
+        {
+          "docente": "Núbia Andrade Ribeiro",
+          "ch": 20,
+          "observacoes": "Readaptada"
+        },
+        {
+          "docente": "Patrícia Santiago Ferreira",
+          "ch": 20,
+          "observacoes": "Dotourado"
+        },
+        {
+          "docente": "Robeleide Cintra Souza Silva",
+          "ch": 40,
+          "observacoes": "Readaptada"
+        },
+        {
+          "docente": "Rosilene Alves Matos",
+          "ch": 20,
+          "observacoes": "Remoção Provisória"
+        },
+        {
+          "docente": "Tânia Silva Reis Sampaio",
+          "ch": 20,
+          "observacoes": ""
+        },
+        {
+          "docente": "Valdilene Costa Silva",
+          "ch": 40,
+          "observacoes": ""
+        },
+        {
+          "docente": "Valdir dos Santos",
+          "ch": 20,
+          "observacoes": "SMED"
+        },
+        {
+          "docente": "Vanusa Ferreira Piropô",
+          "ch": 40,
+          "observacoes": "Diretora"
+        },
+        {
+          "docente": "Virginia Silva Santos",
+          "ch": 20,
+          "observacoes": "Remoção Provisória"
+        }
+      ],
+      "professor_desdobrado": [
+        {
+          "docente": "Rosilene Alves Matos",
+          "ch": 20
+        },
+        {
+          "docente": "Nelma Oliveira Souza",
+          "ch": 20
+        }
+      ],
+      "coordenadora_pedagogica": [
+        {
+          "nome": "Rita de Cássia da Silva Trindade Santos",
+          "ch": 20,
+          "observacoes": "SMED"
+        },
+        {
+          "nome": "Robeleide Cintra Souza Silva",
+          "ch": 20
+        }
+      ],
+      "secretario_escolar": {
+        "nome": "Nilton Bastos de Santana"
+      },
+      "vigilantes": [
+        {
+          "nome": "Ivan Jesus dos Santos",
+          "ch": 40
+        },
+        {
+          "nome": "Josevaldo Procopio de Santana",
+          "ch": 40
+        }
+      ],
+      "atendentes_de_classe": [
+        {
+          "nome": "Carina de Jesus Conceição",
+          "ch": 40
+        },
+        {
+          "nome": "Edinelia dos Santos Oliveira",
+          "ch": 40
+        },
+        {
+          "nome": "Liliane Santana Couto",
+          "ch": 40
+        },
+        {
+          "nome": "Liliane Barbosa Cardoso",
+          "ch": 40,
+          "observacoes": "Remoção Provisória"
+        }
+      ],
+      "aux_servico_escolar": [
+        {
+          "nome": "Ana Marcia Vieira dos Santos",
+          "ch": 30
+        },
+        {
+          "nome": "Antonia Silva Santos",
+          "ch": 30
+        },
+        {
+          "nome": "Irani Santos Araújo",
+          "ch": 30
+        },
+        {
+          "nome": "Jamille Nascimento de Souza",
+          "ch": 30,
+          "observacoes": "Readaptada"
+        },
+        {
+          "nome": "Janete da Silva Souza",
+          "ch": 30
+        },
+        {
+          "nome": "Jeane Teixeira dos Santos",
+          "ch": 30
+        },
+        {
+          "nome": "Juciara Macedo Nascimento",
+          "ch": 30,
+          "observacoes": "Readaptada"
+        },
+        {
+          "nome": "Valdicélia dos Santos",
+          "ch": 30,
+          "observacoes": "INSS"
+        },
+        {
+          "nome": "Viviane das Mercês Aprigio",
+          "ch": 30,
+          "observacoes": "SMED"
+        },
+        {
+          "nome": "Cristovaldo Sousa Nascimento",
+          "ch": 40,
+          "observacoes": "Eraldo Tinoco (Vigilante)"
+        }
+      ],
+      "servidores_contratados": {
+        "assistente_administrativo": [
+          {
+            "nome": "Tyana Goncalves Dos Santos",
+            "ch": 40
+          }
+        ],
+        "atendentes_de_classe": [
+          {
+            "nome": "Liliane Das Merces Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Nivea Sousa Rezende",
+            "ch": 40
+          },
+          {
+            "nome": "Tainara Cardoso Santos",
+            "ch": 40
+          }
+        ],
+        "auxiliares_de_infraestrutura": [
+          {
+            "nome": "Antonia de Jesus Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Etan Ferreira Bastos",
+            "ch": 40
+          },
+          {
+            "nome": "Keli Viana Souza",
+            "ch": 40
+          },
+          {
+            "nome": "Noelia Martins Santos de Sena",
+            "ch": 40
+          },
+          {
+            "nome": "Terezinha da Silva Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Vera Lucia Moraes",
+            "ch": 40
+          },
+          {
+            "nome": "Veronice Martins dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Ziran dos Santos",
+            "ch": 40
+          }
+        ],
+        "coordenador_pedagogico": {
+          "nome": "Lucas Colangeli de Souza",
+          "ch": 20
+        },
+        "professores_regentes": [
+          {
+            "nome": "Ana Paula N. da Silva",
+            "ch": 20
+          },
+          {
+            "nome": "Jairo da Silva Bonfim",
+            "ch": 20
+          },
+          {
+            "nome": "Jusandra da Silva Lima",
+            "ch": 20
+          },
+          {
+            "nome": "Larissa Guirre Souza",
+            "ch": 20
+          },
+          {
+            "nome": "Marilan de Souza Santos",
+            "ch": 20
+          },
+          {
+            "nome": "Maryvane Araujo Barbosa",
+            "ch": 20
+          },
+          {
+            "nome": "Naiara B. da Ressurreição",
+            "ch": 20
+          },
+          {
+            "nome": "Neilan Conceição da S. Barbosa",
+            "ch": 20
+          }
+        ],
+        "vigilantes": [
+          {
+            "nome": "Antonio Santos Rosa",
+            "ch": 40,
+            "funcao": "Vigilante Escolar"
+          },
+          {
+            "nome": "Railton Sousa Passos",
+            "ch": 40,
+            "funcao": "Vigilante Escolar"
+          }
+        ]
+      }
+    }
+  }
+  

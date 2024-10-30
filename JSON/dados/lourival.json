@@ -1,0 +1,87 @@
+{
+    "escola": "Grupo Escolar Lomanto Júnior",
+    "equipe_gestora": {
+      "diretora": "Roziane Souza de Almeida Andrade",
+      "vice_diretora": "Iolene Bastos Nascimento",
+      "coordenadora": "Lilian Pereira Guedes",
+      "secretaria_escolar": "Karine Menezes do Amaral"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        { "nome": "Arizete Mendes Souza", "ch": 20, "observacoes": "Readaptada" },
+        { "nome": "Elismara Bispo dos Santos", "ch": 20, "observacoes": "SMED" },
+        { "nome": "Gilneide Santos de Almeida", "ch": 20 },
+        { "nome": "Ilma Cristina Bastos Nascimento Pereira", "ch": 20 },
+        { "nome": "Iolene Bastos Nascimento", "ch": 20, "observacoes": "Vice-Diretora" },
+        { "nome": "Isnaia dos Santos Chaves", "ch": 20, "observacoes": "INSS" },
+        { "nome": "Lidiane Almeida Silva", "ch": 40 },
+        { "nome": "Roziane Souza de Almeida Andrade", "ch": 20, "observacoes": "Diretora" },
+        { "nome": "Sheila Souza Gonçalves", "ch": 40, "observacoes": "Remoção temporária" },
+        { "nome": "Vilmaci dos Santos Dias", "ch": 20 }
+      ],
+      "professores_desdobrados": [
+        { "nome": "Ilma Cristina Bastos Nascimento Pereira", "ch": 20 },
+        { "nome": "Iolene Bastos Nascimento", "ch": 20 }
+      ],
+      "coordenadora_pedagogica": [
+        { "nome": "Lilian Pereira Guedes", "ch": 20 }
+      ],
+      "secretario_escolar": [
+        { "nome": "Karine Menezes do Amaral", "ch": 40 }
+      ],
+      "vigilantes": [
+        { "nome": "Alysson Hébert Almeida da Silva", "ch": 40 },
+        { "nome": "Paulo Gonçalves da Silva", "ch": 40 },
+        { "nome": "Antonio Cesar Santos Jesus", "ch": 40 }
+      ],
+      "auxiliares_de_servico_escolar": [
+        { "nome": "Ana Carla Ferreira Oliveira", "ch": 30 },
+        { "nome": "Magiane Cardoso Ferreira Oliveira", "ch": 30 },
+        { "nome": "Norma de Fátima Louzada dos Santos", "ch": 30 },
+        { "nome": "Sandra Helena Felix Santos Araújo", "ch": 30, "observacoes": "INSS" },
+        { "nome": "Solange Santos Cardoso da Silva", "ch": 30 }
+      ],
+      "servidores_cedidos_pela_infraestrutura": [
+        { "nome": "Edna Anunciação de Jesus", "ch": 40 }
+      ]
+    },
+    "servidores_contratados": {
+      "atendentes_de_classe": [
+        { "nome": "Adriana dos Santos Borges", "ch": 40 },
+        { "nome": "Anilda Bomfim da Silva", "ch": 40 },
+        { "nome": "Elisangela Andrade Brasil", "ch": 40 },
+        { "nome": "Elizabeth Rocha Pereira", "ch": 40 },
+        { "nome": "Leiliane Sousa Felis", "ch": 40 },
+        { "nome": "Silvone Dos S. Caje e Santos", "ch": 40 }
+      ],
+      "auxiliares_de_alimentacao_escolar": [
+        { "nome": "Daiana Teles dos Santos", "ch": 40 }
+      ],
+      "merendeira": [
+        { "nome": "Edinelia Carvalho Sousa", "ch": 40 }
+      ],
+      "professores_regentes": [
+        { "nome": "Erica O. Lima dos Santos" },
+        { "nome": "Rosevania Souza Correia" },
+        { "nome": "Veronica Santos Batista" }
+      ],
+      "profissionais_de_apoio_a_alunos_com_deficiencia": [
+        { "nome": "Bruna Dos Santos Costa", "ch": 40 },
+        { "nome": "Larissa Figueiredo de Souza", "ch": 40 },
+        { "nome": "Milena Batista Souza Santos", "ch": 40 },
+        { "nome": "Nayana Galvao Oliveira", "ch": 40 },
+        { "nome": "Patricia Silva de Almeida", "ch": 40 },
+        { "nome": "Regia Oliveira de Souza", "ch": 40 },
+        { "nome": "Sossiane Oliveira Santos", "ch": 40 }
+      ],
+      "servicos_gerais": [
+        { "nome": "Agnelita Bispo dos Santos", "ch": 40 },
+        { "nome": "Bruna Teles de Q. Cardoso", "ch": 40 },
+        { "nome": "Carolina Alves dos Santos", "ch": 40 }
+      ],
+      "vigilante_diurno": [
+        { "nome": "Adenilton Nunes dos Santos", "ch": 40 }
+      ]
+    }
+  }
+  

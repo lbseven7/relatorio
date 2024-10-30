@@ -1,0 +1,100 @@
+{
+    "instituicao": "Escola Presidente Castelo Branco",
+    "equipe_gestora": {
+      "diretor": "Rosilene Almeida",
+      "vice_diretor": ["Neide Santiago da Hora", "Josefa Raimunda Santos da Silva"],
+      "coordenador": "Eline Santana Ramos",
+      "secretario_escolar": "Eduardo Gonçalves de Arruda",
+      "assistente_administrativo": "Dilma Teixeira Santos"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        {"ordem": 1, "nome": "Analu Galvão dos Santos", "ch": "20", "observacoes": ""},
+        {"ordem": 2, "nome": "Claudina Santos Lima", "ch": "20", "observacoes": "Remoção Provisória"},
+        {"ordem": 3, "nome": "Ednalva Santos Costa", "ch": "20", "observacoes": "Remoção Provisória"},
+        {"ordem": 4, "nome": "Evely Larissa Moreira Cavalcante", "ch": "20", "observacoes": "Remoção Provisória - INSS"},
+        {"ordem": 5, "nome": "Erenice Dias Bispo", "ch": "20", "observacoes": ""},
+        {"ordem": 6, "nome": "Ildete Santos Costa", "ch": "20", "observacoes": "Diretora Arlinda"},
+        {"ordem": 7, "nome": "Ivonete Ferreira da Silva", "ch": "40", "observacoes": ""},
+        {"ordem": 8, "nome": "Joana Angélica dos Santos Silva", "ch": "40", "observacoes": "APLB Sindicato"},
+        {"ordem": 9, "nome": "Josefa Raimunda Santos da Silva", "ch": "40", "observacoes": ""},
+        {"ordem": 10, "nome": "Luzinete de J. O. Miranda", "ch": "20", "observacoes": "Remoção Provisória"},
+        {"ordem": 11, "nome": "Maria Arlinda Pereira Bonfim", "ch": "40", "observacoes": ""},
+        {"ordem": 12, "nome": "Maria Conceição dos Santos Ribeiro Reis", "ch": "20", "observacoes": "CEMAEE"},
+        {"ordem": 13, "nome": "Marcia Silene Silva Menezes Almeida", "ch": "20", "observacoes": "Diretora Menandro"},
+        {"ordem": 14, "nome": "Neide Santiago da Hora", "ch": "20", "observacoes": ""},
+        {"ordem": 15, "nome": "Regina Celi Santos de Souza", "ch": "20", "observacoes": "Monteiro"},
+        {"ordem": 16, "nome": "Regina Célia Almeida Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 17, "nome": "Rosilene Almeida", "ch": "40", "observacoes": ""},
+        {"ordem": 18, "nome": "Romilda dos Santos Costa", "ch": "20", "observacoes": "Remoção Provisória"},
+        {"ordem": 19, "nome": "Veronica Marques dos Santos Rebouças", "ch": "20", "observacoes": "Remoção Provisória"}
+      ],
+      "professor_desdobrado": [
+        {"ordem": 1, "nome": "Neide Santiago da Hora", "ch": "20", "observacoes": ""},
+        {"ordem": 2, "nome": "Veronica Marques dos Santos Rebouças", "ch": "20", "observacoes": ""}
+      ],
+      "vigilantes": [
+        {"ordem": 1, "nome": "Alan Galvão dos Santos", "ch": "44", "observacoes": "Noturno"},
+        {"ordem": 2, "nome": "Edvaldo Trindade Santana", "ch": "44", "observacoes": "Noturno"}
+      ],
+      "portaria": [
+        {"ordem": 1, "nome": "Goreth Santos dos Anjos", "ch": "30", "observacoes": "Readaptada/Diurno"},
+        {"ordem": 2, "nome": "Pascoal Sousa", "ch": "30", "observacoes": "Portaria/Diurno"}
+      ],
+      "atendentes_de_classe": [
+        {"ordem": 1, "nome": "Flávia da Cruz Ribeiro", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "nome": "Normali Sousa Silva Cerqueira", "ch": "40", "observacoes": ""}
+      ],
+      "secretario_escolar": [
+        {"ordem": 1, "nome": "Eduardo Gonçalves de Arruda", "ch": "40", "observacoes": ""}
+      ],
+      "auxiliares_servicos_escolares": [
+        {"ordem": 1, "nome": "Alessio Silva Santos", "ch": "30", "observacoes": ""},
+        {"ordem": 2, "nome": "Arilza Pereira dos Santos de Jesus", "ch": "30", "observacoes": "INSS"},
+        {"ordem": 3, "nome": "Dionísio Silva Piropo", "ch": "30", "observacoes": "Cedido a Saúde"},
+        {"ordem": 4, "nome": "Marineide Santos C. Marques", "ch": "30", "observacoes": ""},
+        {"ordem": 5, "nome": "Silvia Silva Santana", "ch": "30", "observacoes": "INSS"}
+      ],
+      "funcionaria_cedida": [
+        {"nome": "Dilma Teixeira Santos", "observacoes": "Itaquara"}
+      ],
+      "cozinheira_efetiva": [
+        {"nome": "Luzimere Souza Galvão", "observacoes": "Saúde"}
+      ]
+    },
+    "servidores_contratados": {
+      "atendentes_de_classe": [
+        {"ordem": 1, "nome": "Laridsa Santos De Quadros", "ch": "40", "observacoes": ""}
+      ],
+      "auxiliares_alimentacao_escolar": [
+        {"ordem": 1, "nome": "Luciana Dos Santos Conceição", "ch": "40", "observacoes": ""}
+      ],
+      "coordenador_pedagogico": [
+        {"ordem": 1, "nome": "Eline Santana Ramos", "ch": "40", "observacoes": ""}
+      ],
+      "merendeira": [
+        {"ordem": 1, "nome": "Maria Francisca Dos Santos Teixeira", "ch": "40", "observacoes": ""}
+      ],
+      "professores_regentes": [
+        {"ordem": 1, "nome": "Adilene Costa Almeida Santos", "ch": "20", "observacoes": ""},
+        {"ordem": 2, "nome": "Luciana Dos Santos Silva Bispo", "ch": "40", "observacoes": ""},
+        {"ordem": 3, "nome": "Maria dos Santos Menezes", "ch": "20", "observacoes": ""},
+        {"ordem": 4, "nome": "Miralda Bastos Santos", "ch": "20", "observacoes": ""}
+      ],
+      "profissionais_apoio_deficiencia": [
+        {"ordem": 1, "nome": "Aiala Dos Santos Souza", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "nome": "Euselia Mira Lopes", "ch": "40", "observacoes": ""},
+        {"ordem": 3, "nome": "Keliane Victoria dos Santos Oliveira", "ch": "40", "observacoes": ""},
+        {"ordem": 4, "nome": "Mateus de Souza Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 5, "nome": "Saulo Oliveira", "ch": "41", "observacoes": ""}
+      ],
+      "auxiliares_infraestrutura_escolar": [
+        {"ordem": 1, "nome": "Antonieta Almeida da Silva", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "nome": "Francirleide Moreira de Santana", "ch": "40", "observacoes": ""},
+        {"ordem": 3, "nome": "Isabel Cristina Pereira Pellegrini", "ch": "40", "observacoes": ""},
+        {"ordem": 4, "nome": "Joselina Pereira", "ch": "40", "observacoes": ""},
+        {"ordem": 5, "nome": "Kaio Silva Santos", "ch": "40", "observacoes": ""}
+      ]
+    }
+  }
+  

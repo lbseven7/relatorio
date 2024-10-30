@@ -1,0 +1,124 @@
+{
+    "document": {
+      "company": "JGS NEMAS",
+      "municipality": "Prefeitura Municipal de Jaguaquara/BA",
+      "auction": {
+        "type": "Pregão Eletrônico",
+        "number": "007/2024"
+      },
+      "bank_info": {
+        "name": "Banco do Brasil",
+        "id": "1041412"
+      },
+      "items": [
+        {
+          "item": 1,
+          "description": "Recarga de Tonner Brother 200 gr",
+          "unit": "UND",
+          "quantity": 349,
+          "unit_price": "R$ 49,44",
+          "total_price": "R$ 17.254,56",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 2,
+          "description": "Recarga de Tonner Brother 125 gr",
+          "unit": "UND",
+          "quantity": 369,
+          "unit_price": "R$ 45,50",
+          "total_price": "R$ 16.789,50",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 3,
+          "description": "Recarga de Tonner HP 70 gr",
+          "unit": "UND",
+          "quantity": 245,
+          "unit_price": "R$ 42,20",
+          "total_price": "R$ 10.339,00",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 4,
+          "description": "Recarga de Tonner HP 100 gr",
+          "unit": "UND",
+          "quantity": 338,
+          "unit_price": "R$ 45,10",
+          "total_price": "R$ 15.243,80",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 5,
+          "description": "Recarga de Tonner HP 600 gr",
+          "unit": "UND",
+          "quantity": 359,
+          "unit_price": "R$ 84,00",
+          "total_price": "R$ 30.156,00",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 6,
+          "description": "Recarga de Tonner HP 150 gr",
+          "unit": "UND",
+          "quantity": 208,
+          "unit_price": "R$ 58,00",
+          "total_price": "R$ 12.064,00",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 7,
+          "description": "Recarga Tinta Collor (3x2 ml)",
+          "unit": "UND",
+          "quantity": 25,
+          "unit_price": "R$ 12,99",
+          "total_price": "R$ 324,75",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 8,
+          "description": "Recarga Kioera 400gr",
+          "unit": "UND",
+          "quantity": 239,
+          "unit_price": "R$ 84,00",
+          "total_price": "R$ 20.076,00",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 9,
+          "description": "Recarga Tinta Collor (3 ml)",
+          "unit": "UND",
+          "quantity": 27,
+          "unit_price": "R$ 14,97",
+          "total_price": "R$ 404,19",
+          "brand": "PRÓPRIA"
+        },
+        {
+          "item": 10,
+          "description": "Recarga OKI com chip 200gr",
+          "unit": "UND",
+          "quantity": 76,
+          "unit_price": "R$ 123,00",
+          "total_price": "R$ 9.348,00",
+          "brand": "PRÓPRIA"
+        }
+      ],
+      "total_amount": "R$ 131.999,80",
+      "validity": {
+        "proposal_days": 60,
+        "delivery_time": "De acordo com o edital"
+      },
+      "bank_details": {
+        "bank": "Banco Caixa Econômica Federal",
+        "agency": "0070",
+        "account": {
+          "number": "6987-2",
+          "operation": "003"
+        }
+      },
+      "signature": {
+        "date": "Itabuna/BA 05 de abril 2024",
+        "signed_by": "Hercinês Dias dos Anjos"
+      }
+    }
+  }
+  

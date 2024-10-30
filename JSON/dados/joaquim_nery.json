@@ -1,0 +1,78 @@
+{
+    "escola": "Escola Joaquim Nery de Souza",
+    "equipe_gestora": {
+      "diretora": "Marcia Araújo da Silva",
+      "vice_diretora": "Maria de Fátima F. de Carvalho Reis",
+      "coordenadora": "Ilmara Souza Santos",
+      "secretaria_escolar": "Geisa Feitosa de Sena Santos"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        { "nome": "Edina Teodoro dos Santos", "ch": 20 },
+        { "nome": "Ivanildes B. Mascarenhas", "ch": 20 },
+        { "nome": "Joelma dos Santos Silva", "ch": 20, "observacoes": "Vice Diana" },
+        { "nome": "Josilene Oliveira S. Portela", "ch": "20/20" },
+        { "nome": "Karine Nascimento Silva", "ch": "20/20", "observacoes": "Doutorado" },
+        { "nome": "Lauraci Araujo Oliveira", "ch": 20, "observacoes": "+ 20 permuta de Itiruçu" },
+        { "nome": "Luzinete de Jesus Miranda", "ch": 20, "observacoes": "Sede" },
+        { "nome": "Marcia Araujo da Silva", "ch": 20 },
+        { "nome": "Maria de Fátima Freitas de Carvalho", "ch": 20 },
+        { "nome": "Rosa Nery Costa", "ch": 40, "observacoes": "Readaptada" },
+        { "nome": "Tatiane Santos D’ Emídio", "ch": "20/20" }
+      ],
+      "professores_desdobrados": [
+        { "nome": "Maria de Fátima Freitas de Carvalho", "ch": 20 },
+        { "nome": "Ivanildes B. Mascarenhas", "ch": 20 }
+      ],
+      "atendentes_de_classe": [
+        { "nome": "Marlene dos Santos Figueredo", "ch": 40 }
+      ],
+      "auxiliares_de_servico_escolar": [
+        { "nome": "Indiara Lima dos Santos", "ch": 30 },
+        { "nome": "Maria Auxiliadora Barreto de Souza", "ch": 30 },
+        { "nome": "Maria das Graças Araujo Correia", "ch": 30, "observacoes": "INSS" },
+        { "nome": "Roseli Correia de Oliveira", "ch": 30 }
+      ],
+      "servidores_cedidos_pela_infraestrutura": [
+        { "nome": "Abelúcia Correira dos Santos", "ch": 30, "observacoes": "Gari" }
+      ]
+    },
+    "servidores_contratados": {
+      "atendentes_de_classe": [
+        { "nome": "Evelin Carla de Deus Dos Santos", "ch": 40 },
+        { "nome": "Geany Antonia Santos dos Santos", "ch": 40 },
+        { "nome": "Lusiene Santos Almeida", "ch": 40 }
+      ],
+      "auxiliares_de_infraestrutura_escolar": [
+        { "nome": "Adriano Bastos Lima", "ch": 40 },
+        { "nome": "Aparecida da Cassia Almeida Rodrigues Souza", "ch": 40 },
+        { "nome": "Maria Larissa Sousa Cruz", "ch": 40 },
+        { "nome": "Nubia Coelho Santana", "ch": 40 },
+        { "nome": "Rosineide Santos Da Silva", "ch": 40 }
+      ],
+      "coordenador_pedagogico": [
+        { "nome": "Ilmara Souza Santos", "ch": 20 }
+      ],
+      "professores": [
+        { "nome": "Bruna de Jesus Silva", "ch": 20 },
+        { "nome": "Denilce Silva da Hora", "ch": 20 },
+        { "nome": "Fabia Coelho Santana", "ch": 20 },
+        { "nome": "Geisa Teles dos Santos Henes", "ch": 20 },
+        { "nome": "Judiquele Silva Lima", "ch": 20 },
+        { "nome": "Leiliane Nascimento Santos", "ch": 20 },
+        { "nome": "Monica Barbosa Queiroz Machado", "ch": 20 },
+        { "nome": "Simone Brito da Cruz", "ch": 20 },
+        { "nome": "Valdecy de Jesus Bonfim", "ch": 20 }
+      ],
+      "secretaria_escolar": [
+        { "nome": "Geisa Feitosa de Sena Santos", "ch": 40 }
+      ],
+      "vigilantes_escolares": [
+        { "nome": "Carlos Henrique Silva Felix", "ch": 40 },
+        { "nome": "Dorimar dos Santos", "ch": 40 },
+        { "nome": "Joilton dos Santos Souza", "ch": 40 },
+        { "nome": "Nildo Sousa Gouveia", "ch": 40 }
+      ]
+    }
+  }
+  

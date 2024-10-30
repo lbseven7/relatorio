@@ -1,0 +1,197 @@
+{
+    "escola_terrabras": {
+      "equipe_gestora": {
+        "diretor": "Marilene Andrade Correia Almeida",
+        "vice_diretor": "Zenilde de Souza",
+        "coordenador": "Veridiana Santos de Jesus",
+        "secretario_escolar": "Luciana de Jesus Santos"
+      },
+      "servidores_efetivos": [
+        {
+          "docente": "Ana Paula M. da Silva",
+          "ch": 20,
+          "observacoes": "Everaldo"
+        },
+        {
+          "docente": "Nelma Oliveira Souza",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "docente": "Renilda Gomes Sampaio",
+          "ch": 20,
+          "observacoes": "Remoção Provisória"
+        },
+        {
+          "docente": "Sheila Souza Gonçalves",
+          "ch": 20,
+          "observacoes": "Lomanto"
+        },
+        {
+          "docente": "Verônica dos Santos Rebouças",
+          "ch": 20,
+          "observacoes": "Sede"
+        },
+        {
+          "docente": "Zenilde de Souza",
+          "ch": 20,
+          "observacoes": "Vice-Diretora"
+        }
+      ],
+      "desdobramentos": [
+        {
+          "docente": "Zenilde de Souza",
+          "ch": 20
+        },
+        {
+          "docente": "Renilda Gomes Sampaio",
+          "ch": 20
+        }
+      ],
+      "vigilantes": [
+        {
+          "nome": "Izac Vaniski da Silva",
+          "ch": 40
+        }
+      ],
+      "secretario_escolar": {
+        "nome": "Luciana de Jesus Santos",
+        "ch": 40
+      },
+      "servidores_contratados": {
+        "atendentes_de_classe": [
+          {
+            "nome": "Luciana Pereira Dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Tatiane Santana Silva",
+            "ch": 40
+          }
+        ],
+        "auxiliares_de_infraestrutura": [
+          {
+            "nome": "Ana Lucia Bispo dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Breno Oliveira Silva",
+            "ch": 40
+          },
+          {
+            "nome": "Cristiana Campos Ferraz",
+            "ch": 40
+          },
+          {
+            "nome": "Gutemberg Menezes dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Sandra Santos de Jesus",
+            "ch": 40
+          },
+          {
+            "nome": "Sarah Queiroz de Oliveira",
+            "ch": 40
+          },
+          {
+            "nome": "Silvana dos Santos Cerqueira",
+            "ch": 40
+          }
+        ],
+        "merendeira": [
+          {
+            "nome": "Edna dos Santos Barbosa",
+            "ch": 40
+          }
+        ],
+        "professores_regentes": [
+          {
+            "nome": "Ana Cleude Carmo de Santana"
+          },
+          {
+            "nome": "Beatriz Alcântara de Souza"
+          },
+          {
+            "nome": "Clessia Nery Costa"
+          },
+          {
+            "nome": "Elane Santana Moreira"
+          },
+          {
+            "nome": "Karoline de Jesus Coelho"
+          },
+          {
+            "nome": "Morgana Lula Galvão Brito"
+          },
+          {
+            "nome": "Neila Silva de Oliveira"
+          },
+          {
+            "nome": "Renilda Costa de Almeida"
+          },
+          {
+            "nome": "Veridiana Santos de Jesus"
+          }
+        ],
+        "profissionais_apoio_deficiencia": [
+          {
+            "nome": "Barbara Ferreira dos Santos",
+            "ch": 40
+          },
+          {
+            "nome": "Daniela da A. Nascimento",
+            "ch": 40
+          },
+          {
+            "nome": "Gicelia Vieira Ferreira",
+            "ch": 40
+          },
+          {
+            "nome": "Julia dos Santos Figueredo",
+            "ch": 40
+          },
+          {
+            "nome": "Kailane dos Santos Braga",
+            "ch": 40
+          },
+          {
+            "nome": "Kailane Santos Souza Silva",
+            "ch": 40
+          },
+          {
+            "nome": "Laiane Santos Moraes",
+            "ch": 40
+          }
+        ],
+        "vigilantes": [
+          {
+            "nome": "Daniel Santos Silva",
+            "ch": 40,
+            "funcao": "Vigilante Diurno"
+          },
+          {
+            "nome": "Maciel Damaceno Andrade",
+            "ch": 40,
+            "funcao": "Vigilante Noturno"
+          },
+          {
+            "nome": "Moabe Araujo Silva",
+            "ch": 40,
+            "funcao": "Vigilante Diurno"
+          },
+          {
+            "nome": "Quelson Carlos O. dos Santos",
+            "ch": 40,
+            "funcao": "Vigilante Diurno"
+          },
+          {
+            "nome": "Ronildo Correia Neris",
+            "ch": 40,
+            "funcao": "Vigilante Noturno"
+          }
+        ]
+      }
+    }
+  }
+  

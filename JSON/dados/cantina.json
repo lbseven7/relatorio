@@ -1,0 +1,37 @@
+{
+    "instituicao": "Cantina Central",
+    "servidores_efetivos": [
+      {
+        "ordem": 1,
+        "cargo": "Auxiliar Serv. Escolar",
+        "ch": "30",
+        "funcionario": "Lucineide Paixão dos Santos",
+        "observacoes": ""
+      },
+      {
+        "ordem": 2,
+        "cargo": "Auxiliar Serv. Escolar",
+        "ch": "30",
+        "funcionario": "Roberto da Costa Lima",
+        "observacoes": ""
+      }
+    ],
+    "servidores_contratados": {
+      "nutricionistas": [
+        {"ordem": 1, "funcionario": "Hyan Emanuel da Silva Souza", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "funcionario": "Allana Pereira Viana", "ch": "40", "observacoes": ""},
+        {"ordem": 3, "funcionario": "Tainã", "ch": "40", "observacoes": ""},
+        {"ordem": 4, "funcionario": "Rosana Piropo de Jesus", "ch": "40", "observacoes": ""}
+      ],
+      "carregadores": [
+        {"ordem": 5, "funcionario": "Alisson de Jesus Costa", "ch": "40", "observacoes": ""},
+        {"ordem": 6, "funcionario": "Erisvaldo Bispo dos Santos", "ch": "40", "observacoes": ""}
+      ],
+      "motoristas": [
+        {"ordem": 1, "funcionario": "Almiro Santos dos Anjos", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "funcionario": "Juscelio Santos São Pedro", "ch": "40", "observacoes": ""},
+        {"ordem": 3, "funcionario": "Wagner Souza Moraes", "ch": "40", "observacoes": ""}
+      ]
+    }
+  }
+  

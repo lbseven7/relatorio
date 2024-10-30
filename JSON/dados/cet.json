@@ -1,0 +1,97 @@
+{
+    "instituicao": "Escola Centro Educacional do Trabalhador",
+    "equipe_gestora": {
+      "diretora": "Mírian Santiago da Hora",
+      "vice_diretoras": ["Joalce Jesus dos Santos Albino", "Joseli Cerqueira Freitas"],
+      "coordenador": "Wagner Rocha Galvão",
+      "secretario_escolar": "Gilberto Oliveira Santos",
+      "auxiliar_administrativo_ii": "Benilde Dias Silva"
+    },
+    "servidores_efetivos": {
+      "docentes": [
+        {"ordem": 1, "nome": "Ana Luiza Vieira dos Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "nome": "Andréia Dias da Silva", "ch": "40", "observacoes": "CME"},
+        {"ordem": 3, "nome": "Cecília Oliveira Menezes Andrade", "ch": "40", "observacoes": ""},
+        {"ordem": 4, "nome": "Claudia Moreira Costa", "ch": "20", "observacoes": ""},
+        {"ordem": 5, "nome": "Cleidineia Carvalho Santos", "ch": "40", "observacoes": "Doutorado"},
+        {"ordem": 6, "nome": "Eva Katia da Silva Santos", "ch": "20/20", "observacoes": "Remoção Provisória"},
+        {"ordem": 7, "nome": "Gerlan Oliveira Santos", "ch": "20", "observacoes": "Remoção Provisória"},
+        {"ordem": 8, "nome": "Iramaia Araújo Santos", "ch": "40", "observacoes": "SMED"},
+        {"ordem": 9, "nome": "Jaciara Tâmara Araújo", "ch": "40", "observacoes": ""},
+        {"ordem": 10, "nome": "Joalce Jesus dos Santos Albino", "ch": "20", "observacoes": "Vice-Diretora"},
+        {"ordem": 11, "nome": "Joseli Cerqueira Freitas", "ch": "20", "observacoes": "Vice-Diretora"},
+        {"ordem": 12, "nome": "Josenilda Moreira de Araújo", "ch": "20", "observacoes": ""},
+        {"ordem": 13, "nome": "Katiane Castro dos Santos", "ch": "20/20", "observacoes": "Remoção Provisória"},
+        {"ordem": 14, "nome": "Luiz Carlos Oliveira Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 15, "nome": "Magnovalda Rocha Santos Sena", "ch": "40", "observacoes": ""},
+        {"ordem": 16, "nome": "Maria da Solidade Martins Sousa", "ch": "20", "observacoes": ""},
+        {"ordem": 17, "nome": "Mariney Ramos de Sousa Sena", "ch": "40", "observacoes": ""},
+        {"ordem": 18, "nome": "Mirian Santiago da Hora", "ch": "20", "observacoes": "Diretora"},
+        {"ordem": 19, "nome": "Patrícia Lara de Oliveira", "ch": "20", "observacoes": ""},
+        {"ordem": 20, "nome": "Paulo Gentil dos Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 21, "nome": "Rosenilda Silva Santos", "ch": "40", "observacoes": "Menandro"},
+        {"ordem": 22, "nome": "Rosivany dos Santos", "ch": "40", "observacoes": ""},
+        {"ordem": 23, "nome": "Sueli Maria Bomfim de Andrade", "ch": "40", "observacoes": "Readaptada"},
+        {"ordem": 24, "nome": "Tereza Cristina Sousa Silva", "ch": "40", "observacoes": ""}
+      ],
+      "professores_desdobrados": [
+        {"ordem": 1, "nome": "Joalce Jesus dos Santos Albino", "ch": "20", "observacoes": ""}
+      ],
+      "professor_permutado": [
+        {"ordem": 1, "nome": "Mª Dolores Novaes de Jesus", "ch": "20", "observacoes": ""}
+      ],
+      "secretario_escolar": [
+        {"ordem": 1, "nome": "Gilberto Oliveira Santos", "ch": "40", "observacoes": ""}
+      ],
+      "auxiliar_administrativo_ii": [
+        {"ordem": 1, "nome": "Benilde Dias Silva", "ch": "40", "observacoes": ""}
+      ],
+      "vigilantes": [
+        {"ordem": 1, "nome": "Gilmar Vieira Fonseca", "ch": "40", "observacoes": ""},
+        {"ordem": 2, "nome": "Roberto Ribeiro da Cruz", "ch": "40", "observacoes": ""}
+      ],
+      "atendente_de_classe": [
+        {"ordem": 1, "nome": "Joselita Jesus dos S. Lisboa", "ch": "40", "observacoes": ""}
+      ],
+      "auxiliares_servicos_escolares": [
+        {"ordem": 1, "nome": "Carmen Célia A. dos Stos", "ch": "30", "observacoes": ""},
+        {"ordem": 4, "nome": "Nilzete Oliveira", "ch": "30", "observacoes": "INSS"},
+        {"ordem": 5, "nome": "Noely Oliveira Souza", "ch": "30", "observacoes": ""}
+      ]
+    },
+    "servidores_contratados": {
+      "profissionais_apoio_deficiencia": [
+        {"ordem": 1, "nome": "Ianara Eleuterio dos Santos", "ch": "40h", "observacoes": ""},
+        {"ordem": 2, "nome": "Maibson de Jesus Santos", "ch": "40h", "observacoes": ""},
+        {"ordem": 3, "nome": "Raquel Santos da Silva", "ch": "40h", "observacoes": ""},
+        {"ordem": 4, "nome": "Sonia Silva Ribeiro", "ch": "40h", "observacoes": ""}
+      ],
+      "auxiliares_infraestrutura_escolar": [
+        {"ordem": 1, "nome": "Angeli Maria Dias da Silva", "ch": "40h", "observacoes": ""},
+        {"ordem": 2, "nome": "Daiane Lopes Mendes", "ch": "40h", "observacoes": ""},
+        {"ordem": 3, "nome": "Edileide de Jesus Nascimento", "ch": "40h", "observacoes": ""},
+        {"ordem": 4, "nome": "Everson Ferreira Couto", "ch": "40h", "observacoes": ""},
+        {"ordem": 5, "nome": "Irani dos Santos Barbosa", "ch": "40h", "observacoes": ""},
+        {"ordem": 6, "nome": "Ivaneide dos Santos Maciel", "ch": "40h", "observacoes": ""},
+        {"ordem": 7, "nome": "Silmara Cruz de Almeida", "ch": "40h", "observacoes": ""}
+      ],
+      "coordenador_pedagogico": [
+        {"ordem": 1, "nome": "Wagner Rocha Galvão", "ch": "40h", "observacoes": ""}
+      ],
+      "professores": [
+        {"ordem": 1, "nome": "Bianca Reis Ramos", "ch": "20h", "observacoes": ""},
+        {"ordem": 2, "nome": "Darley da Silva Andrade", "ch": "20h", "observacoes": ""},
+        {"ordem": 3, "nome": "Joelma Sandra da Silveira Rios", "ch": "20h", "observacoes": ""},
+        {"ordem": 4, "nome": "Michele Silva Santos", "ch": "20h", "observacoes": ""},
+        {"ordem": 5, "nome": "Neidiane Machado de Almeida", "ch": "20h", "observacoes": ""},
+        {"ordem": 6, "nome": "Railan Brito de Almeida", "ch": "20h", "observacoes": ""},
+        {"ordem": 7, "nome": "Vladimir de Mendonça Brazil", "ch": "20h", "observacoes": ""}
+      ],
+      "vigilantes_escolares": [
+        {"ordem": 1, "nome": "Agenor Luiz da Silva Neto", "ch": "40h", "observacoes": ""},
+        {"ordem": 2, "nome": "Joilson dos Santos Lopes Ribeiro", "ch": "20h", "observacoes": ""},
+        {"ordem": 3, "nome": "Josimaldo Santos de Souza", "ch": "20h", "observacoes": ""}
+      ]
+    }
+  }
+  
