@@ -42,84 +42,107 @@ with aba[0]:
 with aba[1]:
     st.header("Edição de Serviços")
     # Carregar os serviços ativos do banco
-    df = pd.DataFrame(consultar_servicos())
-    df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+    try:
+        df = pd.DataFrame(consultar_servicos())
+        if df.empty:
+            st.warning("Nenhum serviço disponível para edição.")
+        else:
+            df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
 
-    if not df.empty:
-        id_selecionado = st.selectbox(
-            "Selecione o Serviço para Editar",
-            adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
-            key="editar_id"
-        )
+            id_selecionado = st.selectbox(
+                "Selecione o Serviço para Editar",
+                adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
+                key="editar_id"
+            )
 
-        if id_selecionado != "Selecione":
-            servico_editar = df[df["ID"] == int(id_selecionado)].iloc[0]
-            
-            # Verificar e corrigir a data do banco de dados
-            try:
-                if isinstance(servico_editar["Data"], str):
-                    # Tenta converter a data
-                    data_convertida = pd.to_datetime(servico_editar["Data"], format='%Y-%m-%d', errors='coerce').date()
-                elif isinstance(servico_editar["Data"], datetime):
-                    # Já é um objeto datetime, converte para date
-                    data_convertida = servico_editar["Data"].date()
-                else:
-                    # Valor inesperado
-                    data_convertida = None
+            if id_selecionado != "Selecione":
+                servico_editar = df[df["ID"] == int(id_selecionado)].iloc[0]
 
-                # Substituir valores inválidos
-                if not data_convertida or pd.isna(data_convertida):
-                    st.warning(f"Formato de data inválido para o ID {servico_editar['ID']}. Substituindo pela data atual.")
+                # Verificar e corrigir a data do banco de dados
+                try:
+                    data_convertida = pd.to_datetime(servico_editar["Data"], errors='coerce').date()
+                    if pd.isnull(data_convertida):
+                        raise ValueError("Data inválida")
+                except:
+                    st.warning("Formato de data inválido. Substituindo pela data atual.")
                     data_convertida = datetime.today().date()
 
-            except Exception as e:
-                st.warning(f"Erro ao processar a data: {e}. Substituindo pela data atual.")
-                data_convertida = datetime.today().date()
+                # Exibir campos para edição
+                empresa = st.selectbox(
+                    "Escolha a Empresa",
+                    adicionar_opcao_selecione(empresas_disponiveis),
+                    index=empresas_disponiveis.index(servico_editar["Empresa"]) + 1 if servico_editar["Empresa"] in empresas_disponiveis else 0,
+                    key="editar_empresa"
+                )
+                servico = st.selectbox(
+                    "Escolha o Serviço",
+                    adicionar_opcao_selecione(servicos_disponiveis),
+                    index=servicos_disponiveis.index(servico_editar["Servico"]) + 1 if servico_editar["Servico"] in servicos_disponiveis else 0,
+                    key="editar_servico"
+                )
+                setor = st.selectbox(
+                    "Escolha o Setor",
+                    adicionar_opcao_selecione(setores_disponiveis),
+                    index=setores_disponiveis.index(servico_editar["Setor"]) + 1 if servico_editar["Setor"] in setores_disponiveis else 0,
+                    key="editar_setor"
+                )
+                data = st.date_input("Data", value=data_convertida, key="editar_data")
+                quantidade = st.number_input("Quantidade", min_value=1, step=1, value=servico_editar["Quantidade"], key="editar_quantidade")
 
-            # Exibe a data no seletor
-            data = st.date_input("Data", value=data_convertida, key="editar_data")
+                if st.button("Salvar Alterações", key="salvar_edicao"):
+                    atualizar_servico(int(id_selecionado), empresa, servico, data, setor, quantidade)
+                    st.success("Serviço atualizado com sucesso!")
+    except Exception as e:
+        st.error(f"Erro ao carregar os dados para edição: {e}")
 
-            # Verificar e selecionar Empresa
-            if servico_editar["Empresa"] in empresas_disponiveis:
-                index_empresa = empresas_disponiveis.index(servico_editar["Empresa"]) + 1
-            else:
-                index_empresa = 0
-            empresa = st.selectbox(
-                "Escolha a Empresa",
-                adicionar_opcao_selecione(empresas_disponiveis),
-                index=index_empresa,
-                key="editar_empresa"
+# Aba de Exclusão
+with aba[2]:
+    st.header("Exclusão de Serviços")
+    try:
+        df = pd.DataFrame(consultar_servicos())
+        if df.empty:
+            st.warning("Nenhum serviço disponível para exclusão.")
+        else:
+            df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+
+            id_selecionado = st.selectbox(
+                "Selecione o Serviço para Excluir",
+                adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
+                key="excluir_id"
             )
 
-            # Verificar e selecionar Serviço
-            if servico_editar["Servico"] in servicos_disponiveis:
-                index_servico = servicos_disponiveis.index(servico_editar["Servico"]) + 1
-            else:
-                index_servico = 0
-            servico = st.selectbox(
-                "Escolha o Serviço",
-                adicionar_opcao_selecione(servicos_disponiveis),
-                index=index_servico,
-                key="editar_servico"
-            )
+            if id_selecionado != "Selecione":
+                if st.button("Confirmar Exclusão", key="confirmar_exclusao"):
+                    excluir_servico(int(id_selecionado))
+                    st.success("Serviço excluído com sucesso!")
+    except Exception as e:
+        st.error(f"Erro ao carregar os dados para exclusão: {e}")
 
-            # Verificar e selecionar Setor
-            if servico_editar["Setor"] in setores_disponiveis:
-                index_setor = setores_disponiveis.index(servico_editar["Setor"]) + 1
-            else:
-                index_setor = 0
-            setor = st.selectbox(
-                "Escolha o Setor",
-                adicionar_opcao_selecione(setores_disponiveis),
-                index=index_setor,
-                key="editar_setor"
-            )
+# Aba de Consulta
+with aba[3]:
+    st.header("Consulta de Serviços")
+    try:
+        df = pd.DataFrame(consultar_servicos())
+        if df.empty:
+            st.warning("Nenhum serviço disponível para consulta.")
+        else:
+            df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+            st.dataframe(df)
+    except Exception as e:
+        st.error(f"Erro ao carregar os dados para consulta: {e}")
 
-            # Quantidade
-            quantidade = st.number_input("Quantidade", min_value=1, step=1, value=servico_editar["Quantidade"], key="editar_quantidade")
-
-            if st.button("Salvar Alterações", key="salvar_edicao"):
-                atualizar_servico(int(id_selecionado), empresa, servico, data, setor, quantidade)
-                st.success("Serviço atualizado com sucesso!")
-    else:
-        st.warning("Nenhum serviço disponível para edição.")
+# Aba de Relatório
+with aba[4]:
+    st.header("Relatório de Serviços")
+    try:
+        df = pd.DataFrame(consultar_servicos())
+        if df.empty:
+            st.warning("Nenhum serviço disponível para gerar relatório.")
+        else:
+            empresa_selecionada = st.selectbox("Selecione a Empresa", adicionar_opcao_selecione(empresas_disponiveis), key="relatorio_empresa")
+            if st.button("Emitir Relatório em PDF", key="emitir_relatorio"):
+                pdf_path = gerar_relatorio_pdf(df[df['Empresa'] == empresa_selecionada], f"Relatório de {empresa_selecionada}")
+                with open(pdf_path, "rb") as pdf_file:
+                    st.download_button("Baixar Relatório", data=pdf_file, file_name="relatorio.pdf", mime="application/pdf")
+    except Exception as e:
+        st.error(f"Erro ao gerar o relatório: {e}")
