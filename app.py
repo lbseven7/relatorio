@@ -135,14 +135,35 @@ with aba[3]:
 with aba[4]:
     st.header("Relatório de Serviços")
     try:
-        df = pd.DataFrame(consultar_servicos())
+        # Obter os dados do banco de dados
+        dados = consultar_servicos()
+
+        # Definir colunas para o DataFrame (ajustar a ordem se necessário)
+        colunas = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+        df = pd.DataFrame(dados, columns=colunas)
+
+
         if df.empty:
             st.warning("Nenhum serviço disponível para gerar relatório.")
         else:
             empresa_selecionada = st.selectbox("Selecione a Empresa", adicionar_opcao_selecione(empresas_disponiveis), key="relatorio_empresa")
+            
             if st.button("Emitir Relatório em PDF", key="emitir_relatorio"):
-                pdf_path = gerar_relatorio_pdf(df[df['Empresa'] == empresa_selecionada], f"Relatório de {empresa_selecionada}")
-                with open(pdf_path, "rb") as pdf_file:
-                    st.download_button("Baixar Relatório", data=pdf_file, file_name="relatorio.pdf", mime="application/pdf")
+                if empresa_selecionada == "Selecione":
+                    st.error("Por favor, selecione uma empresa.")
+                else:
+                    try:
+                        # Filtrar DataFrame
+                        df_filtrado = df[df['Empresa'] == empresa_selecionada]
+                        if df_filtrado.empty:
+                            st.warning(f"Nenhum serviço encontrado para a empresa {empresa_selecionada}.")
+                        else:
+                            # Gerar PDF
+                            pdf_path = gerar_relatorio_pdf(df_filtrado, f"Relatório de {empresa_selecionada}")
+                            with open(pdf_path, "rb") as pdf_file:
+                                st.download_button("Baixar Relatório", data=pdf_file, file_name="relatorio.pdf", mime="application/pdf")
+                    except Exception as e:
+                        st.error(f"Erro ao gerar o relatório: {e}")
     except Exception as e:
-        st.error(f"Erro ao gerar o relatório: {e}")
+        st.error(f"Erro ao carregar os dados: {e}")
+
