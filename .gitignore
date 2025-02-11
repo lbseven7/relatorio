@@ -9,7 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-venv_new/
+venv/
 ENV/
 env.bak/
 venv.bak/
