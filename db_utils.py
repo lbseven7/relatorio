@@ -67,5 +67,5 @@ def inserir_tarefa(descricao, funcionario):
         cursor.execute("""
             INSERT INTO tarefas (Descricao, Funcionario, Data) 
             VALUES (?, ?, ?)
-        """, (descricao, funcionario, datetime.now().strftime("%d-%m-%Y %H:%M:%S")))
+        """, (descricao, funcionario, datetime.now().strftime("%d-%m-%Y | %H:%M:%S")))
         conn.commit()
