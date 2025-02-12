@@ -22,6 +22,12 @@ def criar_tabela_servicos():
             Funcionario TEXT,
             Data TEXT
         )""")
+        cursor.execute("""CREATE TABLE IF NOT EXISTS funcionarios (
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nome TEXT,
+            Cargo TEXT,
+            Setor TEXT           
+        )""")
         conn.commit()
 
 def inserir_servico(empresa, servico, data, setor, quantidade):
