@@ -1,5 +1,6 @@
 import sqlite3
 from contextlib import closing
+from datetime import datetime
 
 DB_NAME = "servicos.db"
 
@@ -14,6 +15,12 @@ def criar_tabela_servicos():
             Setor TEXT,
             Quantidade INTEGER,
             Ativo INTEGER DEFAULT 1
+        )""")
+        cursor.execute("""CREATE TABLE IF NOT EXISTS tarefas (
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Descricao TEXT,
+            Funcionario TEXT,
+            Data TEXT
         )""")
         conn.commit()
 
@@ -46,3 +53,19 @@ def consultar_servicos(ativo=1):
     with closing(sqlite3.connect(DB_NAME)) as conn:
         query = "SELECT * FROM servicos WHERE Ativo = ?" if ativo is not None else "SELECT * FROM servicos"
         return conn.execute(query, (ativo,)).fetchall()
+
+def adicionar_tarefas():
+    with closing(sqlite3.connect(DB_NAME)) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM tarefas")
+        tarefas = cursor.fetchall()
+        return [{"ID": row[0], "Descrição": row[1], "Funcionário": row[2], "Data": row[3]} for row in tarefas]
+
+def inserir_tarefa(descricao, funcionario):
+    with closing(sqlite3.connect(DB_NAME)) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO tarefas (Descricao, Funcionario, Data) 
+            VALUES (?, ?, ?)
+        """, (descricao, funcionario, datetime.now().strftime("%d-%m-%Y %H:%M:%S")))
+        conn.commit()

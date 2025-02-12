@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from db_utils import criar_tabela_servicos, inserir_servico, atualizar_servico, excluir_servico, consultar_servicos
+from db_utils import criar_tabela_servicos, inserir_servico, atualizar_servico, excluir_servico, consultar_servicos, adicionar_tarefas, inserir_tarefa
 from reports import gerar_relatorio_pdf
 from helpers import adicionar_opcao_selecione
 import json
@@ -20,18 +20,18 @@ setores_disponiveis = dados["setores_disponiveis"]
 st.title("Sistema de Gestão de Serviços")
 
 # Navegação por abas
-aba = st.tabs(["Cadastro", "Edição", "Exclusão", "Consulta", "Relatório"])
+aba = st.tabs(["Cadastro", "Edição", "Exclusão", "Consulta", "Relatório", "Tarefas"])
 
 # Aba de Cadastro
 with aba[0]:
     st.header("Cadastro de Serviços")
-    empresa = st.selectbox("Escolha a Fornecedor", adicionar_opcao_selecione(empresas_disponiveis))
-    servico = st.selectbox("Escolha o Serviço", adicionar_opcao_selecione(servicos_disponiveis))
-    setor = st.selectbox("Escolha o Setor", adicionar_opcao_selecione(setores_disponiveis))
-    data = st.date_input("Data")
-    quantidade = st.number_input("Quantidade", min_value=1, step=1)
+    empresa = st.selectbox("Escolha a Fornecedor", adicionar_opcao_selecione(empresas_disponiveis), key="cadastro_empresa")
+    servico = st.selectbox("Escolha o Serviço", adicionar_opcao_selecione(servicos_disponiveis), key="cadastro_servico")
+    setor = st.selectbox("Escolha o Setor", adicionar_opcao_selecione(setores_disponiveis), key="cadastro_setor")
+    data = st.date_input("Data", key="cadastro_data")
+    quantidade = st.number_input("Quantidade", min_value=1, step=1, key="cadastro_quantidade")
 
-    if st.button("Cadastrar Serviço"):
+    if st.button("Cadastrar Serviço", key="cadastro_botao"):
         if empresa == "Selecione" or servico == "Selecione" or setor == "Selecione":
             st.error("Por favor, preencha todos os campos.")
         else:
@@ -142,7 +142,6 @@ with aba[4]:
         colunas = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
         df = pd.DataFrame(dados, columns=colunas)
 
-
         if df.empty:
             st.warning("Nenhum serviço disponível para gerar relatório.")
         else:
@@ -167,3 +166,32 @@ with aba[4]:
     except Exception as e:
         st.error(f"Erro ao carregar os dados: {e}")
 
+# Aba de Tarefas
+with aba[5]:
+    st.header("Tarefas do SMED-TI")
+    
+    # Formulário para adicionar nova tarefa
+    st.subheader("Adicionar Nova Tarefa")
+    tarefa_texto = st.text_area("Descrição da Tarefa", key="tarefa_texto")
+    funcionarios = ["Leo", "Luiz", "Vanderson"]
+    funcionario_selecionado = st.selectbox("Selecione o Funcionário", adicionar_opcao_selecione(funcionarios), key="funcionario_selecionado")
+
+    if st.button("Adicionar Tarefa", key="adicionar_tarefa"):
+        if not tarefa_texto or funcionario_selecionado == "Selecione":
+            st.error("Por favor, preencha todos os campos.")
+        else:
+            # Lógica para inserir a tarefa no banco de dados
+            inserir_tarefa(tarefa_texto, funcionario_selecionado)
+            st.success("Tarefa adicionada com sucesso!")
+
+    # Exibir tarefas existentes
+    st.subheader("Tarefas Existentes")
+    try:
+        df = pd.DataFrame(adicionar_tarefas())
+        if df.empty:
+            st.warning("Nenhuma tarefa disponível.")
+        else:
+            df.columns = ["ID", "Descrição", "Funcionário", "Data"]
+            st.dataframe(df)
+    except Exception as e:
+        st.error(f"Erro ao carregar os dados de tarefas: {e}")
