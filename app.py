@@ -108,6 +108,7 @@ with aba[2]:
         else:
             df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
 
+            # Seleção do ID para exclusão
             id_selecionado = st.selectbox(
                 "Selecione o Serviço para Excluir",
                 adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
@@ -115,6 +116,12 @@ with aba[2]:
             )
 
             if id_selecionado != "Selecione":
+                # Mostrar o registro que será excluído
+                servico_a_excluir = df[df["ID"] == int(id_selecionado)].iloc[0]
+                st.write("Serviço a ser excluído:")
+                st.write(servico_a_excluir)
+
+                # Confirmação para excluir
                 if st.button("Confirmar Exclusão", key="confirmar_exclusao"):
                     excluir_servico(int(id_selecionado))
                     st.success("Serviço excluído com sucesso!")
