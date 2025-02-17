@@ -20,18 +20,20 @@ def gerar_relatorio_pdf(df, titulo):
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(60, 10, "Setor", border=1)
         pdf.cell(60, 10, "Serviço", border=1)
+        pdf.cell(40, 10, "Data", border=1)
         pdf.cell(40, 10, "Total", border=1)
         pdf.ln()
 
         # Função para ajustar textos longos
         def ajustar_texto(texto, limite):
-            return texto if len(texto) <= limite else texto[:limite-3] + "..."
+            return texto if len(texto) <= limite else texto[:limite-4] + "..."
 
         # Adicionar dados ao PDF
         pdf.set_font("Arial", '', 12)
         for _, row in df.iterrows():
             pdf.cell(60, 10, ajustar_texto(row["Setor"], 30), border=1)
             pdf.cell(60, 10, ajustar_texto(row["Servico"], 30), border=1)
+            pdf.cell(40, 10, str(row["Data"]), border=1)
             pdf.cell(40, 10, str(row["Quantidade"]), border=1)
             pdf.ln()
 
