@@ -42,7 +42,11 @@ def excluir_servico(id):
         cursor.execute("UPDATE servicos SET Ativo = 0 WHERE ID = ?", (id,))
         conn.commit()
 
-def consultar_servicos(ativo=1):
-    with closing(sqlite3.connect(DB_NAME)) as conn:
-        query = "SELECT * FROM servicos WHERE Ativo = ?" if ativo is not None else "SELECT * FROM servicos"
-        return conn.execute(query, (ativo,)).fetchall()
+def consultar_servicos():
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM servicos ORDER BY id ASC")
+    dados = cursor.fetchall()
+    conn.close()
+    return dados
+    # ESTAVA TRAZENDO SOMENTE DO ID 5 EM DIANTE NO DATAFRAME - RESOLVIDO COM O ORDER BY ID ASC
