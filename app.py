@@ -5,6 +5,9 @@ from reports import gerar_relatorio_pdf
 from helpers import adicionar_opcao_selecione
 import json
 from datetime import datetime
+import sys
+
+sys.setrecursionlimit(5000)  # Aumenta o limite (padrão é cerca de 1000)
 
 # Inicializar banco de dados
 criar_tabela_servicos()
@@ -123,6 +126,7 @@ with aba[3]:
     st.header("Consulta de Serviços")
     try:
         df = pd.DataFrame(consultar_servicos())
+        
         if df.empty:
             st.warning("Nenhum serviço disponível para consulta.")
         else:
