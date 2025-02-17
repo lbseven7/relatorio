@@ -130,7 +130,7 @@ with aba[3]:
         if df.empty:
             st.warning("Nenhum serviço disponível para consulta.")
         else:
-            df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+            df.columns = ["ID", "Empresa", "Servico", "Setor", "Data", "Quantidade", "Ativo"]
             st.dataframe(df)
     except Exception as e:
         st.error(f"Erro ao carregar os dados para consulta: {e}")
