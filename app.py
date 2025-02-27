@@ -150,9 +150,16 @@ with aba[4]:
         dados = consultar_servicos()
 
         # Definir colunas para o DataFrame (ajustar a ordem se necessário)
-        colunas = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+        colunas = ["ID", "Empresa", "Servico", "Setor","Data", "Quantidade", "Ativo"]
         df = pd.DataFrame(dados, columns=colunas)
+        # st.dataframe(df)
 
+        
+        if empresa == "Copy Laser":
+            # Filtrar os dados para a empresa Copy Laser
+            df_copy_laser = df[df['Empresa'] == "Copy Laser"]
+
+        
 
         if df.empty:
             st.warning("Nenhum serviço disponível para gerar relatório.")
