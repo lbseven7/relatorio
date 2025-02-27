@@ -5,7 +5,7 @@ import os
 def gerar_relatorio_pdf(df, titulo):
     try:
         # Validar colunas necessárias no DataFrame
-        colunas_necessarias = {"Setor", "Servico", "Quantidade"}
+        colunas_necessarias = {"Setor", "Servico", "Data","Quantidade"}
         if not colunas_necessarias.issubset(df.columns):
             raise ValueError(f"Colunas faltando no DataFrame. Necessárias: {colunas_necessarias}, encontradas: {df.columns.tolist()}")
 
@@ -21,7 +21,7 @@ def gerar_relatorio_pdf(df, titulo):
         pdf.cell(60, 10, "Setor", border=1)
         pdf.cell(60, 10, "Serviço", border=1)
         pdf.cell(40, 10, "Data", border=1)
-        pdf.cell(40, 10, "Total", border=1)
+        pdf.cell(40, 10, "Quantidade", border=1)
         pdf.ln()
 
         # Função para ajustar textos longos
