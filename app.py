@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 import sys
 
-sys.setrecursionlimit(5000)  # Aumenta o limite (padrão é cerca de 1000)
+sys.setrecursionlimit(5000)
 
 # Inicializar banco de dados
 criar_tabela_servicos()
@@ -28,23 +28,45 @@ aba = st.tabs(["Cadastro", "Edição", "Exclusão", "Consulta", "Relatório"])
 # Aba de Cadastro
 with aba[0]:
     st.header("Cadastro de Serviços")
-    empresa = st.selectbox("Escolha a Fornecedor", adicionar_opcao_selecione(empresas_disponiveis))
-    servico = st.selectbox("Escolha o Serviço", adicionar_opcao_selecione(servicos_disponiveis))
-    setor = st.selectbox("Escolha o Setor", adicionar_opcao_selecione(setores_disponiveis))
-    data = st.date_input("Data")
-    quantidade = st.number_input("Quantidade", min_value=1, step=1)
-
-    if st.button("Cadastrar Serviço"):
-        if empresa == "Selecione" or servico == "Selecione" or setor == "Selecione":
-            st.error("Por favor, preencha todos os campos.")
-        else:
-            inserir_servico(empresa, servico, data, setor, quantidade)
-            st.success("Serviço cadastrado com sucesso!")
+    
+    # Initialize session states
+    if 'cadastro_submitted' not in st.session_state:
+        st.session_state.cadastro_submitted = False
+    if 'show_error' not in st.session_state:
+        st.session_state.show_error = False
+    
+    # Create a form container
+    with st.form("cadastro_form", clear_on_submit=True):
+        empresa = st.selectbox("Escolha a Fornecedor", adicionar_opcao_selecione(empresas_disponiveis))
+        servico = st.selectbox("Escolha o Serviço", adicionar_opcao_selecione(servicos_disponiveis))
+        setor = st.selectbox("Escolha o Setor", adicionar_opcao_selecione(setores_disponiveis))
+        data = st.date_input("Data")
+        quantidade = st.number_input("Quantidade", min_value=1, step=1)
+        
+        submitted = st.form_submit_button("Cadastrar Serviço")
+        
+        if submitted:
+            if empresa == "Selecione" or servico == "Selecione" or setor == "Selecione":
+                st.session_state.show_error = True
+            else:
+                st.session_state.show_error = False
+                inserir_servico(empresa, servico, data, setor, quantidade)
+                st.session_state.cadastro_submitted = True
+                st.success("Serviço cadastrado com sucesso!")
+                st.rerun()
+    
+    # Show error message outside the form if needed
+    if st.session_state.show_error:
+        st.error("Por favor, preencha todos os campos.")
+        st.session_state.show_error = False
+    
+    # Reset the submission state when the form is cleared
+    if st.session_state.cadastro_submitted:
+        st.session_state.cadastro_submitted = False
 
 # Aba de Edição
 with aba[1]:
     st.header("Edição de Serviços")
-    # Carregar os serviços ativos do banco
     try:
         df = pd.DataFrame(consultar_servicos())
         if df.empty:
@@ -52,16 +74,18 @@ with aba[1]:
         else:
             df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
 
-            id_selecionado = st.selectbox(
+            servicos_para_editar = [f"{row['ID']} - {row['Servico']}" for _, row in df.iterrows()]
+            
+            servico_selecionado = st.selectbox(
                 "Selecione o Serviço para Editar",
-                adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
+                adicionar_opcao_selecione(servicos_para_editar),
                 key="editar_id"
             )
 
-            if id_selecionado != "Selecione":
-                servico_editar = df[df["ID"] == int(id_selecionado)].iloc[0]
+            if servico_selecionado != "Selecione":
+                id_selecionado = int(servico_selecionado.split(" - ")[0])
+                servico_editar = df[df["ID"] == id_selecionado].iloc[0]
 
-                # Verificar e corrigir a data do banco de dados
                 try:
                     data_convertida = pd.to_datetime(servico_editar["Data"], errors='coerce').date()
                     if pd.isnull(data_convertida):
@@ -70,7 +94,6 @@ with aba[1]:
                     st.warning("Formato de data inválido. Substituindo pela data atual.")
                     data_convertida = datetime.today().date()
 
-                # Exibir campos para edição
                 empresa = st.selectbox(
                     "Escolha a Empresa",
                     adicionar_opcao_selecione(empresas_disponiveis),
@@ -95,6 +118,7 @@ with aba[1]:
                 if st.button("Salvar Alterações", key="salvar_edicao"):
                     atualizar_servico(int(id_selecionado), empresa, servico, data, setor, quantidade)
                     st.success("Serviço atualizado com sucesso!")
+                    st.rerun()
     except Exception as e:
         st.error(f"Erro ao carregar os dados para edição: {e}")
 
@@ -107,24 +131,43 @@ with aba[2]:
             st.warning("Nenhum serviço disponível para exclusão.")
         else:
             df.columns = ["ID", "Empresa", "Servico", "Data", "Setor", "Quantidade", "Ativo"]
+            
+            # Filter only active services
+            df_ativos = df[df['Ativo'] == 1]
+            
+            if df_ativos.empty:
+                st.warning("Nenhum serviço ativo disponível para exclusão.")
+            else:
+                servicos_para_excluir = [f"{row['ID']} - {row['Servico']} ({row['Empresa']})" for _, row in df_ativos.iterrows()]
+                
+                servico_selecionado = st.selectbox(
+                    "Selecione o Serviço para Excluir",
+                    adicionar_opcao_selecione(servicos_para_excluir),
+                    key="excluir_id"
+                )
 
-            # Seleção do ID para exclusão
-            id_selecionado = st.selectbox(
-                "Selecione o Serviço para Excluir",
-                adicionar_opcao_selecione(df["ID"].astype(str).tolist()),
-                key="excluir_id"
-            )
+                if servico_selecionado != "Selecione":
+                    id_selecionado = int(servico_selecionado.split(" - ")[0])
+                    servico_a_excluir = df[df["ID"] == id_selecionado].iloc[0]
+                    
+                    st.write("Serviço a ser excluído:")
+                    st.write({
+                        "ID": servico_a_excluir["ID"],
+                        "Empresa": servico_a_excluir["Empresa"],
+                        "Serviço": servico_a_excluir["Servico"],
+                        "Data": servico_a_excluir["Data"],
+                        "Setor": servico_a_excluir["Setor"],
+                        "Quantidade": servico_a_excluir["Quantidade"]
+                    })
 
-            if id_selecionado != "Selecione":
-                # Mostrar o registro que será excluído
-                servico_a_excluir = df[df["ID"] == int(id_selecionado)].iloc[0]
-                st.write("Serviço a ser excluído:")
-                st.write(servico_a_excluir)
-
-                # Confirmação para excluir
-                if st.button("Confirmar Exclusão", key="confirmar_exclusao"):
-                    excluir_servico(int(id_selecionado))
-                    st.success("Serviço excluído com sucesso!")
+                    if st.button("Confirmar Exclusão", key="confirmar_exclusao"):
+                        try:
+                            excluir_servico(id_selecionado)
+                            st.success(f"Serviço ID {id_selecionado} excluído com sucesso!")
+                            time.sleep(1)  # Give user time to see the success message
+                            st.rerun()
+                        except Exception as e:
+                            st.error(f"Erro ao excluir o serviço: {e}")
     except Exception as e:
         st.error(f"Erro ao carregar os dados para exclusão: {e}")
 
@@ -146,20 +189,9 @@ with aba[3]:
 with aba[4]:
     st.header("Relatório de Serviços")
     try:
-        # Obter os dados do banco de dados
         dados = consultar_servicos()
-
-        # Definir colunas para o DataFrame (ajustar a ordem se necessário)
         colunas = ["ID", "Empresa", "Servico", "Setor","Data", "Quantidade", "Ativo"]
         df = pd.DataFrame(dados, columns=colunas)
-        # st.dataframe(df)
-
-        
-        if empresa == "Copy Laser":
-            # Filtrar os dados para a empresa Copy Laser
-            df_copy_laser = df[df['Empresa'] == "Copy Laser"]
-
-        
 
         if df.empty:
             st.warning("Nenhum serviço disponível para gerar relatório.")
@@ -171,12 +203,10 @@ with aba[4]:
                     st.error("Por favor, selecione uma empresa.")
                 else:
                     try:
-                        # Filtrar DataFrame
                         df_filtrado = df[df['Empresa'] == empresa_selecionada]
                         if df_filtrado.empty:
                             st.warning(f"Nenhum serviço encontrado para a empresa {empresa_selecionada}.")
                         else:
-                            # Gerar PDF
                             pdf_path = gerar_relatorio_pdf(df_filtrado, f"Relatório de {empresa_selecionada}")
                             with open(pdf_path, "rb") as pdf_file:
                                 st.download_button("Baixar Relatório", data=pdf_file, file_name="relatorio.pdf", mime="application/pdf")
