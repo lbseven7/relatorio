@@ -7,6 +7,37 @@ import json
 from datetime import datetime
 import sys
 
+# Set page config first
+st.set_page_config(
+    page_title="Sistema de Gestão de Serviços",
+    layout="wide"
+)
+
+# Add custom CSS
+st.markdown("""
+    <style>
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        width: 100%;
+    }
+    .stButton>button:hover {
+        background-color: white !important;
+        color: #4CAF50 !important;
+        border: 2px solid #4CAF50 !important;
+    }
+    .stSelectbox {
+        background-color: #F0F2F6;
+    }
+    .st-emotion-cache-1v0mbdj {
+        width: 100%;
+    }
+    div[data-testid="stHeader"] {
+        background-color: #4CAF50;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 sys.setrecursionlimit(5000)
 
 # Inicializar banco de dados
@@ -181,7 +212,26 @@ with aba[3]:
             st.warning("Nenhum serviço disponível para consulta.")
         else:
             df.columns = ["ID", "Empresa", "Servico", "Setor", "Data", "Quantidade", "Ativo"]
-            st.dataframe(df)
+            
+            # Add company filter
+            empresa_filtro = st.selectbox(
+                "Filtrar por Empresa",
+                ["Todas as Empresas"] + list(df["Empresa"].unique()),
+                key="consulta_empresa"
+            )
+            
+            # Apply filter if a specific company is selected
+            if empresa_filtro != "Todas as Empresas":
+                df_filtrado = df[df["Empresa"] == empresa_filtro]
+            else:
+                df_filtrado = df
+            
+            # Display filtered dataframe
+            st.dataframe(df_filtrado)
+            
+            # Show total records
+            st.write(f"Total de registros: {len(df_filtrado)}")
+            
     except Exception as e:
         st.error(f"Erro ao carregar os dados para consulta: {e}")
 
