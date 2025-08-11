@@ -50,3 +50,27 @@ def consultar_servicos():
     conn.close()
     return dados
     # ESTAVA TRAZENDO SOMENTE DO ID 5 EM DIANTE NO DATAFRAME - RESOLVIDO COM O ORDER BY ID ASC
+
+
+def padronizar_nome_empresa(nome_antigo, nome_novo):
+    """
+    Atualiza todos os registros no banco de dados que contêm o nome_antigo da empresa
+    para usar o nome_novo padronizado.
+    
+    Args:
+        nome_antigo (str): O nome atual da empresa que será substituído (ex: "NEEMIAS RIOS DOS ANJOS")
+        nome_novo (str): O novo nome padronizado da empresa (ex: "Neemias Rios dos Anjos")
+    
+    Returns:
+        int: Número de registros atualizados
+    """
+    with closing(sqlite3.connect(DB_NAME)) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            UPDATE servicos
+            SET Empresa = ?
+            WHERE Empresa = ?
+        """, (nome_novo, nome_antigo))
+        registros_atualizados = cursor.rowcount
+        conn.commit()
+        return registros_atualizados

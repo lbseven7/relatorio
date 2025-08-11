@@ -417,7 +417,6 @@ with aba[3]:
         st.error(f"Erro ao carregar os dados para consulta: {e}")
 
 # Aba de Relatório
-# Aba de Relatório
 with aba[4]:
     st.header("Relatório de Serviços")
     try:
@@ -464,7 +463,8 @@ with aba[4]:
                     # Informações sobre os registros
                     st.write(f"Total de registros encontrados: {len(df_exibicao)}")
                     st.write("Período dos registros:")
-                    st.write(f"De: {df_filtrado['Data'].min().strftime('%d/%m/%Y')} até {df_filtrado['Data'].max().strftime('%d/%m/%Y')}")
+                    # Forçar a exibição do período desde 01/01/2024 até a data atual
+                    st.write(f"De: 01/01/2024 até {data_atual.strftime('%d/%m/%Y')}")
                     
                     # Exibir dados ordenados por data
                     df_exibicao = df_exibicao.sort_values('Data')
@@ -496,15 +496,4 @@ if __name__ == '__main__':
     local_ip = socket.gethostbyname(hostname)
     print(f"Acesse o aplicativo em: http://{local_ip}:8501")
     
-    # Iniciar o servidor Streamlit
-    import streamlit.web.bootstrap
-    streamlit.web.bootstrap.run(
-        "app.py",
-        "",
-        [],
-        flag_options={
-            "server.address": "0.0.0.0",
-            "server.port": 8501
-        }
-    )
 
