@@ -20,12 +20,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Debug Secrets (Remove after testing)
-        run: echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}"
+      # Removed debug line for production deployment
 
       - name: Build the Docker image
-        run: docker build -t mydockerhubusername/relatorio-smed:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/relatorio-smed:latest .
 
       - name: Push the Docker image
-        run: docker push mydockerhubusername/relatorio-smed:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/relatorio-smed:latest
 
